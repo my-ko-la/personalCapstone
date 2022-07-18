@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "name": "MT-07",
+        "brand": "Yahama",
+        "price": 10999,
+        "imgUrl": "./assets/yahama.jpg"
+    },
+
+    {
+        "id": 2,
+        "name": "Z-1000",
+        "brand": "Kawasaki",
+        "price": 11899,
+        "imgUrl": "./assets/kawasaki.jpg"
+    }, 
+
+    {
+        "id": 3,
+        "name": "GXS-700",
+        "brand": "Suzuki",
+        "price": 9999,
+        "imgUrl": "./assets/suzuki.jpg"
+    },
+
+    {
+        "id": 4,
+        "name": "CB600R",
+        "brand": "Honda",
+        "price": 10599,
+        "imgUrl": "./assets/honda.jpg"
+    },
+
+
+    {
+        "id": 5,
+        "name": "S1000RR",
+        "brand": "BMW",
+        "price": 24999,
+        "imgUrl": "./assets/bmw.jpg"
+    },
+
+
+    {
+        "id": 6,
+        "name": "Panigale V4",
+        "brand": "Ducati",
+        "price": 27999,
+        "imgUrl": "./assets/ducati.jpg"
+    }
+]
