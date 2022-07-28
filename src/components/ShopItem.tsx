@@ -1,33 +1,40 @@
 import { useState } from "react";
 import showStars from "../utils/showStars";
 
-enum Availability { inStock, checkAvailability, outOfStock};
-
-
+enum Availability {
+    inStock="in stock", 
+    checkAvailability = "check availability", 
+    outOfStock = "out of stock",
+};
 
 interface ShopItemProps  {
-    name: String
-    isOnSale: Boolean
-    price: Number
-    isRated: Boolean
-    rating?: Number
-    isReviewed: Boolean
-    reviews?: Number
-    inStock: Availability
-    productPicture: String
+    name: string
+    isOnSale: boolean
+    price: number
+    isRated: boolean
+    rating?: number
+    isReviewed: boolean
+    reviews?: number
+    inStock: string,
+    productPicture: string
 }
 
 
-const ShopItem = ({props} : ShopItemProps) => 
+const ShopItem = (props : ShopItemProps) => 
 {
-
     return (
-        <div className="flex ">
+        <div className="flex bg-slate-300 h-64 w-52 flex-col">
             <span>{props.inStock}</span>
-            <img src="{props.productPicture}" alt="" />
+            <img src="`${props.productPicture}`" alt="" />
             <div>
-                {props.isRated && showStars(props.rating)}
+                {props.isRated ? 
+                showStars(props.rating)
+                :
+                <p>Not Rated</p>}
+                {props.isReviewed ? 
                 <p>Reviews ({props.reviews})</p>
+                :
+                <p>No Reviews</p>}
             </div>
             <p>{props.name}</p>
             <div>
@@ -37,8 +44,6 @@ const ShopItem = ({props} : ShopItemProps) =>
         </div>
 
     )
-    
-
 }
 
 export default ShopItem;

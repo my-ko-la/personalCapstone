@@ -1,0 +1,14 @@
+[
+    {
+    "name": "Ex Mil",
+    "isOnSale": false,
+    "price": 499,
+    "isRated": true,
+    "rating": 3,
+    "isReviewed": true,
+    "reviews": 4,
+    "inStock": "yes",
+    "productPicture": "../assets/images/image29.png"
+    }
+
+]
