@@ -3,11 +3,25 @@
     "name": "Ex Mil",
     "isOnSale": false,
     "price": 499,
+    "currency": "USD",
     "isRated": true,
     "rating": 3,
     "isReviewed": true,
     "reviews": 4,
-    "inStock": "yes",
+    "inStock": "in stock",
+    "productPicture": "../assets/images/image29.png"
+    },
+
+    {
+    "name": "Ex Mil",
+    "isOnSale": true,
+    "currency": "USD",
+    "price": 499,
+    "isRated": true,
+    "rating": 3,
+    "isReviewed": true,
+    "reviews": 4,
+    "inStock": "in stock",
     "productPicture": "../assets/images/image29.png"
     }
 

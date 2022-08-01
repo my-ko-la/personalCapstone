@@ -1,21 +1,22 @@
 import { useState } from "react";
 import showStars from "../utils/showStars";
 
-enum Availability {
+/*enum Availability {
     inStock="in stock", 
     checkAvailability = "check availability", 
     outOfStock = "out of stock",
-};
+};*/
 
 interface ShopItemProps  {
     name: string
     isOnSale: boolean
     price: number
+    currency: string
     isRated: boolean
-    rating?: number
+    rating: number 
     isReviewed: boolean
     reviews?: number
-    inStock: string,
+    inStock: string
     productPicture: string
 }
 
@@ -23,10 +24,10 @@ interface ShopItemProps  {
 const ShopItem = (props : ShopItemProps) => 
 {
     return (
-        <div className="flex bg-slate-300 h-64 w-52 flex-col">
-            <span>{props.inStock}</span>
-            <img src="`${props.productPicture}`" alt="" />
-            <div>
+        <div className="flex bg-gray-100 h-64 w-56 flex-col font-poppins">
+            <span className="pl-2 font-light">{props.inStock}</span>
+            <img src={props.productPicture} alt="" />
+            <div className="flex flex-row justify-between">
                 {props.isRated ? 
                 showStars(props.rating)
                 :
@@ -36,10 +37,11 @@ const ShopItem = (props : ShopItemProps) =>
                 :
                 <p>No Reviews</p>}
             </div>
-            <p>{props.name}</p>
+            <p className="font-thin">{props.name}</p>
             <div>
-                {props.isOnSale && <p>props.price</p>}
-                <p>props.price</p>
+                {props.isOnSale && 
+                <p className="font-light text-gray-400 line-through">{props.currency} { props.price }</p>}
+                <p className="">{props.currency} {props.price}</p>
             </div>
         </div>
 
