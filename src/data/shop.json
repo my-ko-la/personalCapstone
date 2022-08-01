@@ -1,6 +1,6 @@
 [
     {
-    "name": "Ex Mil",
+    "name": "Ex DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One...",
     "isOnSale": false,
     "price": 499,
     "currency": "USD",
@@ -9,20 +9,70 @@
     "isReviewed": true,
     "reviews": 4,
     "inStock": "in stock",
-    "productPicture": "../assets/images/image29.png"
+    "productPicture": "/images/image29.png"
     },
 
     {
-    "name": "Ex Mil",
+    "name": "Ex DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One...",
+    "isOnSale": true,
+    "currency": "USD",
+    "price": 499,
+    "isRated": false,
+    "rating": 4,
+    "isReviewed": false,
+    "reviews": 0,
+    "inStock": "in stock",
+    "productPicture": "/images/image29.png"
+    },
+
+    {
+    "name": "Ex DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One...",
+    "isOnSale": true,
+    "currency": "USD",
+    "price": 499,
+    "isRated": true,
+    "rating": 5,
+    "isReviewed": true,
+    "reviews": 9,
+    "inStock": "in stock",
+    "productPicture": "/images/image29.png"
+    },
+
+    {
+    "name": "Ex DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One...",
+    "isOnSale": true,
+    "currency": "USD",
+    "price": 499,
+    "isRated": true,
+    "rating": 4,
+    "isReviewed": true,
+    "reviews": 4,
+    "inStock": "in stock",
+    "productPicture": "/images/image29.png"
+    },
+
+    {
+    "name": "Ex DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One...",
     "isOnSale": true,
     "currency": "USD",
     "price": 499,
     "isRated": true,
     "rating": 3,
     "isReviewed": true,
-    "reviews": 4,
+    "reviews": 21,
     "inStock": "in stock",
-    "productPicture": "../assets/images/image29.png"
+    "productPicture": "/images/image29.png"
+    },
+{
+    "name": "Ex DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One...",
+    "isOnSale": true,
+    "currency": "USD",
+    "price": 499,
+    "isRated": true,
+    "rating": 4,
+    "isReviewed": true,
+    "reviews": 11,
+    "inStock": "in stock",
+    "productPicture": "/images/image29.png"
     }
-
 ]
