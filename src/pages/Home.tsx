@@ -5,6 +5,7 @@ import ShopItem from "../components/ShopItem";
 import data from "../data/shop.json";
 import Gallery from "../components/Gallery";
 import PreFooter from "../components/PreFooter";
+import Footer from "../components/Footer";
 
 
 const Home = () => 
@@ -26,6 +27,7 @@ const Home = () =>
                 <Gallery /> 
             </div>
             <PreFooter />
+            <Footer />
         </>
     )
 }
