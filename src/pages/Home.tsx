@@ -6,6 +6,7 @@ import data from "../data/shop.json";
 import Gallery from "../components/Gallery";
 import PreFooter from "../components/PreFooter";
 import Footer from "../components/Footer";
+import ZipAdd from "../components/ZipAdd";
 
 
 const Home = () => 
@@ -27,6 +28,9 @@ const Home = () =>
                 <div className="md:px-48">
                     <Gallery /> 
                 </div>
+                <div className="pt-6"></div>
+                <ZipAdd />
+                <div className="pt-6"></div>
                 <PreFooter />
             </main>
             <Footer />

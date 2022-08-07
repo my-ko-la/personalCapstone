@@ -145,7 +145,7 @@ const Footer = () =>
 </svg>
 
                         </div>
-                        <p className="text-xs font-thin text-gray-400 absolute right-0">Copyright C 2020 Shop Pty. Ltd.</p>
+                        <p className="text-xs font-thin text-gray-400 absolute right-0">Copyright &#169; 2020 Shop Pty. Ltd.</p>
                     </div>
                 </div>        
         </>

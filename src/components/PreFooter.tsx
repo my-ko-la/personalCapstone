@@ -4,6 +4,7 @@ const PreFooter = () =>
 {
     return (
         <>
+            <div className="pt-3"></div>
             <div className="w-full flex flex-row justify-center gap-32 items-center">
                 <div className="flex flex-col gap-3 w-52 h-40 items-center">
                 <svg width="65" height="66" viewBox="0 0 65 66" fill="none" xmlns="http://www.w3.org/2000/svg">
