@@ -34,6 +34,28 @@ const Home = () =>
                     bgImg="../public/images/customBuild.png"
                     title="Custom Build"
                     link="See All Custom Builds"
+                    productFilter="V6.png"
+                />
+                <div className="pt-6"></div>
+                <HomeProductSection 
+                    bgImg="../public/images/msiLaptops.png"
+                    title="MSI Laptops"
+                    link="See All Laptops"
+                    productFilter="laptop.png"
+                />
+                <div className="pt-6"></div>
+                <HomeProductSection 
+                    bgImg="../public/images/desktops.png"
+                    title="Desktops"
+                    link="See All Desktops"
+                    productFilter="desktop.png"
+                />
+                <div className="pt-3"></div>
+                <HomeProductSection 
+                    bgImg="../public/images/gamingMonitors.png"
+                    title="Gaming Monitors"
+                    link="See All Monitors"
+                    productFilter="monitor.png"
                 />
                 <div className="pt-6"></div>
                 <PreFooter />
