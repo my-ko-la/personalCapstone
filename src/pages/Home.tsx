@@ -1,12 +1,11 @@
 import Navbar from "../components/Navbar";
 import TopBar from "../components/TopBar";
 import msiWallpaper from "/images/msi_desktop.png";
-import ShopItem from "../components/ShopItem";
-import data from "../data/shop.json";
 import Gallery from "../components/Gallery";
 import PreFooter from "../components/PreFooter";
 import Footer from "../components/Footer";
 import ZipAdd from "../components/ZipAdd";
+import HomeProductSection from "../components/HomeProductSection";
 
 
 const Home = () => 
@@ -30,6 +29,12 @@ const Home = () =>
                 </div>
                 <div className="pt-6"></div>
                 <ZipAdd />
+                <div className="pt-6"></div>
+                <HomeProductSection 
+                    bgImg="../public/images/customBuild.png"
+                    title="Custom Build"
+                    link="See All Custom Builds"
+                />
                 <div className="pt-6"></div>
                 <PreFooter />
             </main>

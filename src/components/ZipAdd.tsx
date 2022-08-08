@@ -19,7 +19,7 @@ const ZipAdd = () => {
     </clipPath>
     </defs>
             </svg>
-            <p className="border-l  outline-4 border-cyan-500 pl-4"><b>own</b> it now, up to 6 months interest free <a href="" className="underline text-xs">learn more</a></p>
+            <p className="border-l  outline-4 text-[#272560] border-cyan-500 pl-4"><b>own</b> it now, up to 6 months interest free <a href="" className="underline text-xs">learn more</a></p>
         </div>
     </div>
     )

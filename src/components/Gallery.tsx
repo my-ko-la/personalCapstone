@@ -7,15 +7,18 @@ const Gallery = () => {
 
     const handleDragStart = ( e: any ) => e.preventDefault();
 
-    const shopItems = data.map((item) =>
+    const shopItems = data
+    .filter(item => item.showcased)
+    .map((item) =>
         <ShopItem {...item} />
-        )
+    )
 
     const responsive=
                 {
                     0:{items:1,},
                     396:{items:2,},
-                    768:{items:4,},
+                    768:{items:3,},
+                    1280:{items:4,},
                     1440: {items:5},
                 }
     return (    
