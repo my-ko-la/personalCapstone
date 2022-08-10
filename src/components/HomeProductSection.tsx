@@ -16,20 +16,21 @@ interface HomeProductSectionProps {
 
 const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (props) => {
     
+    const [categoryShown, setCategoryShown] = useState("");
+    
     const shopItems = data
     .filter(item => item.productPicture.endsWith(props.productFilter))
     .map((item, index) => 
         index < 4 && <ShopItem {...item} />
     )
     
-    const [categoryShown, setCategoryShown] = useState("");
 
     const inputRadioLabels = props.categoryList?.map((category) =>
     (
-        <>
-            <input className="peer" type="radio" name="category" id={category} value={category} onChange={(e) => setCategoryShown(e.target.value)} />
-            <label className="cursor-pointer appearance-none peer-checked:underline checked:text-black checked:font-medium" htmlFor={category}>{category}</label>
-        </>
+        <div>
+            <input className="hidden peer" type="radio" name="category" id={category} value={category} onChange={(e) => setCategoryShown(e.target.value)} />
+            <label className="cursor-pointer appearance-none peer-checked:border-b-blue-600 peer-checked:border-b-2 peer-checked:text-black peer-checked:font-bold" htmlFor={category}>{category}</label>
+        </div>
     ))
 
 
