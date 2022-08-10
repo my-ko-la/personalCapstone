@@ -2,6 +2,7 @@ import type {ShopItemProps} from './ShopItem';
 import ShopItem from "./ShopItem";
 import data from '../data/shop.json';
 import { useState } from "react";
+import renderProductByCategory from '../utils/renderProductByCategory';
 
 
 
@@ -17,39 +18,19 @@ interface HomeProductSectionProps {
 
 const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (props) => {
     
-    const [categoryShown, setCategoryShown] = useState("");
-    
-    const renderProductByCategory = 
-    (   
-        data: ShopItemProps[],
-        filter: string,
-        category?: string,
-
-    ) => {
-        return data
-        .filter(item => item.category === category)
-        .filter(item => item.productPicture.endsWith(filter))
-        .map((item, index) =>
-            index < 4 && <ShopItem {...item} />
-        )
-    }
-
-
-
-
-    const shopItems = data
-    .filter(item => item.productPicture.endsWith(props.productFilter))
-    .map((item, index) => 
-        index < 4 && <ShopItem {...item} />
-    )
-
-    
+    // find a better way yeah?
+    const [categoryShown, setCategoryShown] = 
+    useState(props.categoryList ? props.categoryList[0] : "");
     
 
-    const inputRadioLabels = props.categoryList?.map((category) =>
+    const shopItems = renderProductByCategory(data, props.productFilter, categoryShown);
+   
+    // why do we use rest parameters here?
+    const inputRadioLabels = props.categoryList?.map((category, index) =>
     (
         <div>
-            <input className="hidden peer" type="radio" name="category" id={category} value={category} onChange={(e) => setCategoryShown(e.target.value)} />
+            <input className="hidden peer" type="radio" name="category" id={category} value={category} onChange={(e) => setCategoryShown(e.target.value)} 
+            {...(index === 0 && {defaultChecked: true})}/>
             <label className="cursor-pointer appearance-none peer-checked:border-b-blue-600 peer-checked:border-b-2 peer-checked:text-black peer-checked:font-bold" htmlFor={category}>{category}</label>
         </div>
     ))

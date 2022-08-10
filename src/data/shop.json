@@ -106,7 +106,7 @@
     "isReviewed": true,
     "reviews": 11,
     "inStock": "in stock",
-    "productPicture": "/images/gray_laptop.png",
+    "productPicture": "/images/green2_laptop.png",
     "showcased": false,
     "category": "MSI GL Series"
   },
@@ -218,7 +218,7 @@
   },
 
   {
-    "id": 13,
+    "id": 131,
     "name": "Ex DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One...",
     "isOnSale": true,
     "currency": "USD",
@@ -229,8 +229,53 @@
     "reviews": 11,
     "inStock": "in stock",
     "productPicture": "/images/type2_desktop.png",
-    "showcased": false
+    "showcased": false,
+    "category": "MSI XT Series"
   },
+  { 
+    "id": 16,
+    "name": "Ex DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One...",
+    "isOnSale": true,
+    "currency": "USD",
+    "price": 499,
+    "isRated": true,
+    "rating": 4,
+    "isReviewed": true,
+    "reviews": 11,
+    "inStock": "in stock",
+    "productPicture": "/images/type3_desktop.png",
+    "showcased": false,
+    "category": "MSI XT Series"
+  },
+{
+    "id": 165,
+    "name": "Ex DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One...",
+    "isOnSale": true,
+    "currency": "USD",
+    "price": 499,
+    "isRated": true,
+    "rating": 4,
+    "isReviewed": true,
+    "reviews": 11,
+    "inStock": "in stock",
+    "productPicture": "/images/type3_desktop.png",
+    "showcased": false,
+    "category": "MSI Nightblade Series"
+},
+{    "id": 16,
+"name": "Ex DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One...",
+"isOnSale": true,
+"currency": "USD",
+"price": 499,
+"isRated": true,
+"rating": 4,
+"isReviewed": true,
+"reviews": 11,
+"inStock": "in stock",
+"productPicture": "/images/type3_desktop.png",
+"showcased": false,
+"category": "MSI Infinite Series"}
+,
 
   {
     "id": 14,
@@ -244,7 +289,8 @@
     "reviews": 11,
     "inStock": "in stock",
     "productPicture": "/images/type3_desktop.png",
-    "showcased": false
+    "showcased": false,
+    "category": "MSI Infinite Series"
   },
   {
     "id": 15,
@@ -258,7 +304,8 @@
     "reviews": 11,
     "inStock": "in stock",
     "productPicture": "/images/type1_desktop.png",
-    "showcased": false
+    "showcased": false,
+    "category": "MSI Infinite Series"
   },
   {
     "id": 16,
@@ -272,7 +319,39 @@
     "reviews": 11,
     "inStock": "in stock",
     "productPicture": "/images/type3_desktop.png",
-    "showcased": false
+    "showcased": false,
+    "category": "MSI Trident Series"
+  },
+  {
+    "id": 162,
+    "name": "Ex DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One...",
+    "isOnSale": true,
+    "currency": "USD",
+    "price": 499,
+    "isRated": true,
+    "rating": 4,
+    "isReviewed": true,
+    "reviews": 11,
+    "inStock": "in stock",
+    "productPicture": "/images/type3_desktop.png",
+    "showcased": false,
+    "category": "MSI Trident Series"
+  },
+
+  {
+    "id": 163,
+    "name": "Ex DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-One...",
+    "isOnSale": true,
+    "currency": "USD",
+    "price": 499,
+    "isRated": true,
+    "rating": 4,
+    "isReviewed": true,
+    "reviews": 11,
+    "inStock": "in stock",
+    "productPicture": "/images/type3_desktop.png",
+    "showcased": false,
+    "category": "MSI Infinite Series"
   },
 
   {
