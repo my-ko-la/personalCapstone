@@ -6,6 +6,27 @@ import showStars from "../utils/showStars";
     outOfStock = "out of stock",
 };*/
 
+
+/* Can this even be useful?
+
+enum msiCategoryLaptops {
+    gs = "MSI GS Series",
+    gt = "MSI GT Series",
+    gl = "MSI GL Series",
+    ge = "MSI GE Series",
+}
+
+enum msiCategoryDesktops {
+    infinite = "MSI Infinite Series",
+    trident = "MSI Trident Series",
+    xt = "MSI XT Series",
+    nightblade = "MSI Nightblade Series",
+}
+
+interface ProductCategory  {
+    category: msiCategoryDesktops | msiCategoryLaptops
+}*/
+
 interface ShopItemProps  {
     id?: number
     name: string
@@ -19,6 +40,7 @@ interface ShopItemProps  {
     inStock: string
     productPicture: string
     showcased?: boolean
+    category?: string
 }
 
 
@@ -56,5 +78,5 @@ const ShopItem: React.FunctionComponent<ShopItemProps> = (props) =>
     )
 }
 
-export type {ShopItemProps};
+export type { ShopItemProps};
 export default ShopItem;

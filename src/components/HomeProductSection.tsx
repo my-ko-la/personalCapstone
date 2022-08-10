@@ -1,7 +1,8 @@
-import ShopItemProps from "./ShopItem";
+import type {ShopItemProps} from './ShopItem';
 import ShopItem from "./ShopItem";
 import data from '../data/shop.json';
 import { useState } from "react";
+
 
 
 interface HomeProductSectionProps {
@@ -11,18 +12,38 @@ interface HomeProductSectionProps {
     productFilter: string
     category: boolean
     categoryList?: string[]
-    shopItems?: typeof ShopItemProps
+    shopItems?: ShopItemProps
 }
 
 const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (props) => {
     
     const [categoryShown, setCategoryShown] = useState("");
     
+    const renderProductByCategory = 
+    (   
+        data: ShopItemProps[],
+        filter: string,
+        category?: string,
+
+    ) => {
+        return data
+        .filter(item => item.category === category)
+        .filter(item => item.productPicture.endsWith(filter))
+        .map((item, index) =>
+            index < 4 && <ShopItem {...item} />
+        )
+    }
+
+
+
+
     const shopItems = data
     .filter(item => item.productPicture.endsWith(props.productFilter))
     .map((item, index) => 
         index < 4 && <ShopItem {...item} />
     )
+
+    
     
 
     const inputRadioLabels = props.categoryList?.map((category) =>

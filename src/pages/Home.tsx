@@ -38,7 +38,7 @@ const Home = () =>
                     productFilter="V6.png"
                     category={false}
                 />
-                <div className="pt-12"></div>
+                <div className="pt-14"></div>
                 <HomeProductSection 
                     bgImg="../public/images/msiLaptops.png"
                     title="MSI Laptops"
@@ -47,14 +47,14 @@ const Home = () =>
                     category={true}
                     categoryList={["MSI GS Series", "MSI GT Series", "MSI GL Series", "MSI GE Series"]}
                 />
-                <div className="pt-12"></div>
+                <div className="pt-14"></div>
                 <HomeProductSection 
                     bgImg="../public/images/desktops.png"
                     title="Desktops"
                     link="See All Desktops"
                     productFilter="desktop.png"
                     category={true}
-                    categoryList={["MSI Infinite Series", "MSI Trident Series", "MSI GL Series", "MSI Nightblade Series"]}
+                    categoryList={["MSI Infinite Series", "MSI Trident Series", "MSI XT Series", "MSI Nightblade Series"]}
                 />
                 <div className="pt-8"></div>
                 <HomeProductSection 
