@@ -38,11 +38,11 @@ const ShopItem: React.FunctionComponent<ShopItemProps> = (props) =>
                 {props.isRated ? 
                 showStars(props.rating)
                 :
-                <p className="text-xs font-extralight text-gray-400">Not Rated</p>}
+                <p className="text-xs font-extralight text-gray-300">Not Rated</p>}
                 {props.isReviewed ? 
-                <p className="font-light text-gray-300 text-xs pr-2">Reviews ({props.reviews})</p>
+                <p className="font-light text-gray-300 text-xs pr-3">Reviews ({props.reviews})</p>
                 :
-                <p className="text-xs font-extralight text-gray-400">No Reviews</p>}
+                <p className="text-xs pr-3 font-extralight text-gray-300">No Reviews</p>}
             </div>
             <p className="font-thin pt-2">{props.name}</p>
             <div className="pt-3">

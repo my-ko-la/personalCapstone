@@ -29,33 +29,40 @@ const Home = () =>
                 </div>
                 <div className="pt-6"></div>
                 <ZipAdd />
-                <div className="pt-6"></div>
+                
+                <div className="pt-8"></div>
                 <HomeProductSection 
                     bgImg="../public/images/customBuild.png"
                     title="Custom Build"
                     link="See All Custom Builds"
                     productFilter="V6.png"
+                    category={false}
                 />
-                <div className="pt-6"></div>
+                <div className="pt-12"></div>
                 <HomeProductSection 
                     bgImg="../public/images/msiLaptops.png"
                     title="MSI Laptops"
                     link="See All Laptops"
                     productFilter="laptop.png"
+                    category={true}
+                    categoryList={["MSI GS Series", "MSI GT Series", "MSI GL Series", "MSI GE Series"]}
                 />
-                <div className="pt-6"></div>
+                <div className="pt-12"></div>
                 <HomeProductSection 
                     bgImg="../public/images/desktops.png"
                     title="Desktops"
                     link="See All Desktops"
                     productFilter="desktop.png"
+                    category={true}
+                    categoryList={["MSI Infinite Series", "MSI Trident Series", "MSI GL Series", "MSI Nightblade Series"]}
                 />
-                <div className="pt-3"></div>
+                <div className="pt-8"></div>
                 <HomeProductSection 
                     bgImg="../public/images/gamingMonitors.png"
                     title="Gaming Monitors"
                     link="See All Monitors"
                     productFilter="monitor.png"
+                    category={false}
                 />
                 <div className="pt-6"></div>
                 <PreFooter />
