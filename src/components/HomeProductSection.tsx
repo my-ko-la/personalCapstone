@@ -2,8 +2,7 @@ import type {ShopItemProps} from './ShopItem';
 import data from '../data/shop.json';
 import { useState } from "react";
 import renderProductByCategory from '../utils/renderProductByCategory';
-
-import {animated, useSprings} from '@react-spring/web';
+import animateShopItem from '../utils/applyAnimation';
 
 
 interface HomeProductSectionProps {
@@ -18,46 +17,6 @@ interface HomeProductSectionProps {
 
 const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (props) => { 
 
-    // animation instructions
-    const animInst = 
-    [
-        {
-            id:1,
-            from: {opacity: 0, marginLeft: -10},
-            to: {opacity: 1, marginLeft: 0},
-            config: {duration: 500},
-            delay: 200,
-        },
-        {
-            id:2,
-            from: {opacity: 0, marginLeft: -20},
-            to: {opacity: 1, marginLeft: 0},
-            config: {duration: 400},
-            delay: 300,
-        },
-        {
-            id:3,
-            from: {opacity: 0, marginLeft: -30},
-            to: {opacity: 1, marginLeft: 0},
-            config: {duration: 300},
-            delay: 400,
-        }, 
-        {
-            id:4,
-            from: {opacity: 0, marginLeft: -40},
-            to: {opacity: 1, marginLeft: 0},
-            config: {duration: 200},
-            delay: 500,
-        },
-    ];
-
-    const springs = useSprings(
-        animInst.length,
-        animInst.map(({id, ...param}) => param)
-    )
-
-
-
     const [categoryShown, setCategoryShown] = 
     useState(props.categoryList ? props.categoryList[0] : "");
     
@@ -70,7 +29,8 @@ const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (pr
         <div>
             <input className="hidden peer" type="radio" name="category" id={category} value={category} onChange={(e) => setCategoryShown(e.target.value)} 
             {...(index === 0 && {defaultChecked: true})}/>
-            <label className="cursor-pointer appearance-none peer-checked:border-b-blue-600 peer-checked:border-b-2 peer-checked:text-black peer-checked:font-bold" htmlFor={category}>{category}</label>
+            <label className="cursor-pointer appearance-none peer-checked:border-b-blue-600 peer-checked:border-b-2
+             peer-checked:text-black peer-checked:font-bold" htmlFor={category}>{category}</label>
         </div>
     ))
 

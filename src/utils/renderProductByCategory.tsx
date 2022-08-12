@@ -27,6 +27,7 @@ const renderProductByCategory =
             )
         }
         return intermediateData
+        
     }
 
 export default renderProductByCategory;

@@ -5,8 +5,6 @@ import data from '../data/shop.json';
 
 const Gallery = () => {
 
-    const handleDragStart = ( e: any ) => e.preventDefault();
-
     const shopItems = data
     .filter(item => item.showcased)
     .map((item) =>

@@ -1,5 +1,6 @@
 import showStars from "../utils/showStars";
 
+
 /*enum Availability {
     inStock="in stock", 
     checkAvailability = "check availability", 
