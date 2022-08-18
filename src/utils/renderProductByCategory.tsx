@@ -11,13 +11,16 @@ const renderProductByCategory =
         // intermediateData type?
         let intermediateData;
         
+        
+        
         if (category) 
         {
             intermediateData = data
                 .filter(item => item.category === category)
                 .filter(item => item.productPicture.endsWith(filter))
                 .map((item, index) =>
-                index < 4 && <ShopItem {...item} />
+                index < 4 && 
+                <ShopItem {...item} />
                 )
         } else {
             intermediateData = data
