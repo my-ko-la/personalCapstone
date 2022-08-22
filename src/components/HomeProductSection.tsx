@@ -66,7 +66,7 @@ const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
           <a className="absolute text-white text-sm font-light bottom-4 underline">
             {props.link}
           </a>
-          <img src={props.bgImg} className="w-44 h-full" alt="" />
+          <img src={props.bgImg} className="w-full h-full" alt="" />
         </div>
         <div className="flex flex-row pl-10 items-center">{shopItems}</div>
       </div>
