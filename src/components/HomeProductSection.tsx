@@ -2,8 +2,6 @@ import type { ShopItemProps } from "./ShopItem";
 import data from "../data/shop.json";
 import { useState } from "react";
 import renderProductByCategory from "../utils/renderProductByCategory";
-import { animated, useSprings } from "@react-spring/web";
-import animationInstructions from "../utils/HPAnimationInstructions";
 
 interface HomeProductSectionProps {
   title: string;
@@ -56,7 +54,7 @@ const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
     <section className="flex flex-col h-[22rem] relative px-48 justify-center">
       {props.category && (
         <form className="flex flex-row text-md gap-5 text-gray-400">
-          <ul className="flex flex-row gap-3 pb-1">{inputRadioLabels}</ul>
+          <ul className="flex flex-row gap-3 pb-2">{inputRadioLabels}</ul>
         </form>
       )}
       <div className="pt-2"></div>
@@ -65,10 +63,7 @@ const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
           <p className="absolute text-white font-semibold text-lg left-1/5 top-1/2">
             {props.title}
           </p>
-          <a
-            className="absolute text-white text-sm font-light bottom-4 underline"
-            href=""
-          >
+          <a className="absolute text-white text-sm font-light bottom-4 underline">
             {props.link}
           </a>
           <img src={props.bgImg} className="w-44 h-full" alt="" />

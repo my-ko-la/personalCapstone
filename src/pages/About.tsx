@@ -1,4 +1,6 @@
 import InfoSection from "../components/InfoSection";
+import PreFooter from "../components/PreFooter";
+import Footer from "../components/Footer";
 import QuoteReview from "../components/QuoteReview";
 import TopNav from "../components/TopNav";
 import aboutData from "../data/about.json";
@@ -16,6 +18,8 @@ const About = () => {
       </div>
       {aboutItems}
       <QuoteReview />
+      <PreFooter />
+      <Footer />
     </>
   );
 };
