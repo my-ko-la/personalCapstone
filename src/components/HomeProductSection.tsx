@@ -32,7 +32,7 @@ const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
 
   // why do we use rest parameters here?
   const inputRadioLabels = props.categoryList?.map((category, index) => (
-    <>
+    <li>
       <input
         className="hidden peer"
         type="radio"
@@ -49,14 +49,14 @@ const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
       >
         {category}
       </label>
-    </>
+    </li>
   ));
 
   return (
     <section className="flex flex-col h-[22rem] relative px-48 justify-center">
       {props.category && (
         <form className="flex flex-row text-md gap-5 text-gray-400">
-          {inputRadioLabels}
+          <ul className="flex flex-row gap-3 pb-1">{inputRadioLabels}</ul>
         </form>
       )}
       <div className="pt-2"></div>
