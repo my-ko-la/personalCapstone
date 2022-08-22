@@ -6,6 +6,7 @@ import PreFooter from "../components/PreFooter";
 import Footer from "../components/Footer";
 import ZipAdd from "../components/ZipAdd";
 import HomeProductSection from "../components/HomeProductSection";
+import QuoteReview from "../components/QuoteReview";
 
 const HomePage = () => {
   return (
@@ -76,6 +77,7 @@ const HomePage = () => {
           category={false}
         />
         <div className="pt-6"></div>
+        <QuoteReview />
         <PreFooter />
       </main>
       <Footer />
