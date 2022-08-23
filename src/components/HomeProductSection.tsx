@@ -58,7 +58,7 @@ const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
         </form>
       )}
       <div className="pt-2"></div>
-      <div className="flex flex-row">
+      <div className="flex flex-row gap-3">
         <div className="flex flex-col justify-center relative items-center">
           <p className="absolute text-white font-semibold text-lg left-1/5 top-1/2">
             {props.title}
