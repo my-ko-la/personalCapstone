@@ -1,8 +1,8 @@
 import InfoSection from "../components/InfoSection";
-import PreFooter from "../components/PreFooter";
-import Footer from "../components/Footer";
+import PreFooter from "../components/c_global/PreFooter";
+import Footer from "../components/c_global/Footer";
 import QuoteReview from "../components/QuoteReview";
-import TopNav from "../components/TopNav";
+import TopNav from "../components/c_global/TopNav";
 import aboutData from "../data/about.json";
 
 const About = () => {

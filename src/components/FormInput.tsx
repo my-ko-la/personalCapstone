@@ -15,7 +15,7 @@ const FormInput: React.FunctionComponent<FormInputProps> = (props) => {
       <div className="pt-1"></div>
       {props.size === "large" ? (
         <input
-          className="border outline-2 rounded-md font-light text-sm w-2/3 h-48 px-2 align-top"
+          className="border outline-2 rounded-md font-light text-sm w-2/3 h-48 pl-1 pb-[15%] placeholder:text-top"
           type={props.type}
           placeholder={props.placeholder}
         />

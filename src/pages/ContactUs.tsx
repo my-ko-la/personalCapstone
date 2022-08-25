@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Footer from "../components/Footer";
+import Footer from "../components/c_global/Footer";
 import FormInput from "../components/FormInput";
-import PreFooter from "../components/PreFooter";
-import TopNav from "../components/TopNav";
+import PreFooter from "../components/c_global/PreFooter";
+import TopNav from "../components/c_global/TopNav";
 
 const ContactUs = () => {
   const [values, setValues] = useState({
@@ -65,8 +65,10 @@ const ContactUs = () => {
           <div id="addressField"></div>
         </div>
       </div>
-      <div className="pt-8"></div>
-      <PreFooter />
+      <div className="pt-6"></div>
+      <div className="bg-slate-100">
+        <PreFooter />
+      </div>
       <Footer />
     </>
   );
