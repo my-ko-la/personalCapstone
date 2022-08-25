@@ -14,21 +14,24 @@ const ContactUs = () => {
   const inputs = [
     {
       id: 1,
-      name: "name",
+      name: "Your Name",
       type: "text",
       placeholder: "Your Name",
+      size: "small",
     },
     {
       id: 2,
-      name: "email",
+      name: "Your Email",
       type: "email",
       placeholder: "Your Email",
+      size: "small",
     },
     {
       id: 3,
-      name: "message",
+      name: "Subject",
       type: "text",
-      placeholder: "Your Message",
+      placeholder: "Jot us down a few words, we'll get to you ASAP...",
+      size: "large",
     },
   ];
 
@@ -52,8 +55,9 @@ const ContactUs = () => {
           Please contact us and we will make sure to get back to you as soon as
           we possibly can.
         </h5>
-        <form>
-          {inputs.map((formItem) => (
+        <div className="pt-4"></div>
+        <form className="flex flex-col gap-4 justify-start">
+          {inputs.flatMap((formItem) => (
             <FormInput key={formItem.id} {...formItem} onChange={handleInput} />
           ))}
         </form>
@@ -61,6 +65,7 @@ const ContactUs = () => {
           <div id="addressField"></div>
         </div>
       </div>
+      <div className="pt-8"></div>
       <PreFooter />
       <Footer />
     </>
