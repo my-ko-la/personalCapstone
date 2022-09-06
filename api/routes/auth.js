@@ -9,7 +9,7 @@ router.post("/register", async (req, res) => {
       hashedPassword: CryptoJS.AES.encrypt(
         req.body.password,
         process.env.SEC_HSH
-      ),
+      ).toString(),
     });
     res.status(201).json(user);
   } catch (err) {
