@@ -4,18 +4,20 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-
+const dotenv = require("dotenv");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 const authRouter = require("./routes/auth");
 
 var app = express();
 
-const mongoDB =
-  "mongodb+srv://mykocaine:fukkkpasswordtesting1@cluster0.md4vpkj.mongodb.net/bootleg_com?retryWrites=true&w=majority";
+dotenv.config();
 
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
-// .then(() => console.log("MongoDB Connected"));
+const mongoDB = process.env.MONGO_URL;
+
+mongoose
+  .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("MongoDB Connected"));
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
