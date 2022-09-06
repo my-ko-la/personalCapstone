@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "cryptojs": "^2.5.3",
-    "mongoose": "^6.5.4"
-  }
-}
