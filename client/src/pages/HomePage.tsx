@@ -1,5 +1,4 @@
-import Navbar from "../components/c_global/Navbar";
-import TopBar from "../components/c_global/TopBar";
+import TopNav from "../components/c_global/TopNav";
 import msiWallpaper from "/images/msi_desktop.png";
 import Gallery from "../components/Gallery";
 import PreFooter from "../components/c_global/PreFooter";
@@ -11,8 +10,7 @@ import QuoteReview from "../components/QuoteReview";
 const HomePage = () => {
   return (
     <>
-      <TopBar />
-      <Navbar />
+      <TopNav />
       <main className="mb-auto">
         <img
           className="sm:flex justify-center hidden md:inline-flex md:px-48"

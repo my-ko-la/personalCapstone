@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <div className="flex px-24 md:px-48">
@@ -58,7 +60,7 @@ const Navbar = () => {
               />
             </svg>
           </a>
-          <a href="">LG</a>
+          <Link to="/login">Login</Link>
         </div>
       </div>
     </div>

@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+// Figure out why you wrote this component
+
 interface FormInputProps {
   name: string;
   placeholder: string;

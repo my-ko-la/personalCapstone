@@ -18,4 +18,26 @@ router.post("/register", async (req, res) => {
   }
 });
 
+router.post("/login", async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    !user && res.status(401).send("Wrong username or password");
+
+    const hashedPassword = CryptoJS.AES.decrypt(
+      user.hashedPassword,
+      process.env.SEC_HSH
+    );
+    const originalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
+
+    originalPassword !== req.body.password &&
+      res.status(401).send("Wrong password");
+
+    const { password, ...userInfo } = user._doc; // to avoid mongo being weird ; look into this
+
+    res.status(200).json(userInfo);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 module.exports = router;
