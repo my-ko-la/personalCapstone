@@ -1,0 +1,47 @@
+{
+  "hash": "dd635c7b",
+  "browserHash": "9d228a23",
+  "optimized": {
+    "react/jsx-runtime": {
+      "src": "../../node_modules/react/jsx-runtime.js",
+      "file": "react_jsx-runtime.js",
+      "fileHash": "0e15dff7",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "bb18ba6e",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "422c380a",
+      "needsInterop": true
+    },
+    "react-alice-carousel": {
+      "src": "../../node_modules/react-alice-carousel/lib/react-alice-carousel.js",
+      "file": "react-alice-carousel.js",
+      "fileHash": "495631a3",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "dd4fa8cc",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "8fafa4c0",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-7BNY4ODL": {
+      "file": "chunk-7BNY4ODL.js"
+    }
+  }
+}
