@@ -38,7 +38,7 @@ type User = {
 
 type UserStore<T> = {
   user: T;
-  populateUserInfo: (user: T, data: T) => void;
+  populateUserInfo: (data: T) => void;
 };
 
 export type { UserStore, User };

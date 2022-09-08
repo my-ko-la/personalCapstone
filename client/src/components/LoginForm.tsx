@@ -21,7 +21,7 @@ const LoginForm = () => {
       body: JSON.stringify(loginData),
     });
     const data = await res.json();
-    store.populateUserInfo(store.user, data);
+    store.populateUserInfo(data);
     console.log(store.user);
   };
 
