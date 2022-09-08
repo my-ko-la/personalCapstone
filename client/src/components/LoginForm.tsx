@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import useStore from "../store";
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState<{
@@ -9,8 +10,10 @@ const LoginForm = () => {
     password: "",
   });
 
+  const store = useStore();
+
   const sendLoginData = async () => {
-    const res = await fetch("/auth/login", {
+    const res = await fetch("http://localhost:5000/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +21,8 @@ const LoginForm = () => {
       body: JSON.stringify(loginData),
     });
     const data = await res.json();
-    console.log(data);
+    store.populateUserInfo(store.user, data);
+    console.log(store.user);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

@@ -34,8 +34,11 @@ type User = {
   };
   isAdmin: boolean;
   cart: Product[];
-  populateCart: () => void;
-  emptyCart: () => void;
 };
 
-export type { User };
+type UserStore<T> = {
+  user: T;
+  populateUserInfo: (user: T, data: T) => void;
+};
+
+export type { UserStore, User };
