@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useStore from "../store";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState<{
@@ -22,6 +23,10 @@ const LoginForm = () => {
     });
     const data = await res.json();
     store.populateUserInfo(data);
+    console.log("REGULAGR data");
+    console.log(data);
+    console.log("USING {...data}");
+    console.log({ ...data });
     console.log(store.user);
   };
 
@@ -68,7 +73,9 @@ const LoginForm = () => {
 
       <hr />
       <div className="pt-2"></div>
-      <p className="hover:text-blue-500">Sign up?</p>
+      <Link to="/signup">
+        <p className="hover:text-blue-500">Sign up?</p>
+      </Link>
     </div>
   );
 };

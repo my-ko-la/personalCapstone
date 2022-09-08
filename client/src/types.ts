@@ -33,6 +33,7 @@ type User = {
     zip: string;
   };
   isAdmin: boolean;
+  isLoggedIn: boolean;
   cart: Product[];
 };
 

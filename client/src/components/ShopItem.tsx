@@ -57,7 +57,7 @@ const ShopItem: React.FunctionComponent<ShopItemProps> = (props) => {
           <path
             d="M7.5 4L4.98404 7L3.5 5.27853"
             stroke="white"
-            stroke-linecap="round"
+            strokeLinecap="round"
           />
         </svg>
         {props.inStock}
