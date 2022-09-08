@@ -4,7 +4,7 @@ import { UserStore, User } from "./types";
 const populateCart = (data: any): void => {};
 
 const populateUserInfo = (user: User, data: User) => {
-  user = { ...data };
+  user = Object.assign(user, data);
 };
 
 const emptyCart = (): void => {};
@@ -16,18 +16,8 @@ const useStore = create<UserStore<User>>(
       lname: "",
       email: "",
       password: "",
-      billingAddress: {
-        street: "",
-        city: "",
-        state: "",
-        zip: "",
-      },
-      shippingAddress: {
-        street: "",
-        city: "",
-        state: "",
-        zip: "",
-      },
+      billingAddress: "",
+      shippingAddress: "",
       isAdmin: false,
       isLoggedIn: false,
       cart: [],

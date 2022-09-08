@@ -20,18 +20,8 @@ type User = {
   lname: string;
   email: string;
   password: string;
-  billingAddress: {
-    street: string;
-    city: string;
-    state: string;
-    zip: string;
-  };
-  shippingAddress: {
-    street: string;
-    city: string;
-    state: string;
-    zip: string;
-  };
+  billingAddress: string;
+  shippingAddress: string;
   isAdmin: boolean;
   isLoggedIn: boolean;
   cart: Product[];

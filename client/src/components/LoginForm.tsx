@@ -14,20 +14,19 @@ const LoginForm = () => {
   const store = useStore();
 
   const sendLoginData = async () => {
-    const res = await fetch("http://localhost:5000/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(loginData),
-    });
-    const data = await res.json();
-    store.populateUserInfo(data);
-    console.log("REGULAGR data");
-    console.log(data);
-    console.log("USING {...data}");
-    console.log({ ...data });
-    console.log(store.user);
+    try {
+      const res = await fetch("http://localhost:5000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginData),
+      });
+      const data = await res.json();
+      store.populateUserInfo(data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,7 +42,7 @@ const LoginForm = () => {
     <div className="font-poppins flex flex-col max-w-xl items-center">
       <form
         method="post"
-        className="flex flex-col gap-5 items-center rounded-xl justify-center py-8 px-5"
+        className="flex flex-col gap-5 items-center justify-center py-8 px-5"
         onSubmit={handleSubmit}
       >
         <label className="flex flex-col gap-1" htmlFor="email">
