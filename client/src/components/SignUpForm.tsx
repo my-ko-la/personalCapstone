@@ -1,6 +1,8 @@
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 // Fix layout later
+// Implement confirm password later
+// Implement user existence || JWT token ?
 
 const SignUpForm = () => {
   const [signupData, setSignupData] = useState<{
@@ -19,6 +21,8 @@ const SignUpForm = () => {
     shippingAddress: "",
   });
 
+  const navigate = useNavigate();
+
   const sendSignUpData = async () => {
     try {
       const res = await fetch("http://localhost:5000/auth/register", {
@@ -28,6 +32,8 @@ const SignUpForm = () => {
         },
         body: JSON.stringify(signupData),
       });
+      const data = await res.json();
+      navigate("/login");
     } catch (err) {
       console.log(err);
       // const data = await res.json();
@@ -86,7 +92,7 @@ const SignUpForm = () => {
           </label>
           <input
             className="block mt-0 px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
-            type="text"
+            type="password"
             onChange={handleChange}
             name="password"
           />

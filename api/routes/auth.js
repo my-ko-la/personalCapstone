@@ -11,7 +11,7 @@ router.post("/register", async (req, res) => {
         process.env.SEC_HSH
       ).toString(),
     });
-    res.status(201).json(user);
+    res.status(201).send("User created");
   } catch (err) {
     console.log(err);
     res.status(400).send(err);

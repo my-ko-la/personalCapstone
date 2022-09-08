@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import getInitials from "../../utils/getInitials";
+import useStore from "../../store";
 
 const Navbar = () => {
+  const store = useStore();
+  const initials = getInitials(store.user?.fname, store.user?.lname);
+
   return (
     <div className="flex px-24 md:px-48">
       <div className="flex flex-row justify-between font-poppins text-xs">
@@ -27,7 +32,10 @@ const Navbar = () => {
           <a href="">PC Parts</a>
           <a href="">All Other Products</a>
           <a href="">Repairs</a>
-          <button className="text-blue-600 border-2 font-bold rounded-2xl px-5 h-8 md:text-xs border-blue-600">
+          <button
+            className="text-blue-600 transition-colors duration-800 border-2 font-bold rounded-2xl px-5 h-8 md:text-xs border-blue-600
+          hover:transition-all hover:text-white hover:bg-blue-600 hover:duration-800"
+          >
             Our Deals
           </button>
         </div>
@@ -62,7 +70,12 @@ const Navbar = () => {
               />
             </svg>
           </a>
-          <Link to="/login">Log in</Link>
+          <Link
+            className="py-2 px-4 hover:bg-black hover:text-white hover:transition-all rounded-xl transition-all duration-800 hover:duration-800 hover:ease-linear"
+            to="/login"
+          >
+            Log in
+          </Link>
         </div>
       </div>
     </div>

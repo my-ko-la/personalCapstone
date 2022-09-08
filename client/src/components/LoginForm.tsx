@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useStore from "../store";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState<{
@@ -12,6 +13,7 @@ const LoginForm = () => {
   });
 
   const store = useStore();
+  const navigate = useNavigate();
 
   const sendLoginData = async () => {
     try {
@@ -24,6 +26,8 @@ const LoginForm = () => {
       });
       const data = await res.json();
       store.populateUserInfo(data);
+      store.user.isLoggedIn = true;
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -65,7 +69,7 @@ const LoginForm = () => {
           />
         </label>
 
-        <button className="py-2 px-4 hover:bg-black hover:text-white hover:transition-all rounded-sm  hover:duration-800 hover:ease-linear">
+        <button className="py-2 px-4 hover:bg-black hover:text-white hover:transition-all rounded-sm transition-all duration-800 hover:duration-800 hover:ease-linear">
           Log in
         </button>
       </form>

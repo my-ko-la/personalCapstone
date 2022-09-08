@@ -8,7 +8,6 @@ const SignUp = () => {
     <>
       <TopNav />
       <hr />
-      <div className="pt-6"></div>
       <div className="mb-auto w-screen flex flex-col items-center justify-center">
         <SignUpForm />
       </div>
