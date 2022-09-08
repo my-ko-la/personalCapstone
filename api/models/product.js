@@ -18,3 +18,5 @@ const productSchema = new Schema({
   isOnSale: { type: Boolean, required: true },
   showcased: Boolean,
 });
+
+module.exports = mongoose.model("Product", productSchema);
