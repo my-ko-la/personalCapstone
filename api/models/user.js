@@ -5,7 +5,7 @@ const userSchema = new Schema(
   {
     fname: { type: String, required: true },
     lname: { type: String, required: true },
-    email: { type: String, required: true },
+    email: { type: String, unique: true, required: true },
     hashedPassword: { type: String, required: true },
     billingAddress: {
       street: String,
@@ -22,6 +22,11 @@ const userSchema = new Schema(
     idAdmin: {
       type: Boolean,
       default: false,
+    },
+    isLoggedIn: {
+      type: Boolean,
+      default: false,
+      required: true,
     },
   },
   { timestamps: true }

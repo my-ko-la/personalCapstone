@@ -11,7 +11,7 @@ router.post("/register", async (req, res) => {
         process.env.SEC_HSH
       ).toString(),
     });
-    res.status(201).send("User created");
+    res.status(201).json(user);
   } catch (err) {
     console.log(err);
     res.status(400).send(err);
@@ -32,11 +32,32 @@ router.post("/login", async (req, res) => {
     originalPassword !== req.body.password &&
       res.status(401).send("Wrong password");
 
+    user.isLoggedIn = true;
     const { password, ...userInfo } = user._doc; // to avoid mongo being weird ; look into this
 
-    res.status(200).json(userInfo);
+    user.save().then(res.status(200).json(userInfo));
   } catch (err) {
     res.status(500).send(err);
+  }
+});
+
+router.put("/logout", async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    const logoutUser = { isLoggedIn: false };
+    const confirmed = await user.updateOne(logoutUser);
+    confirmed && res.status(200).json("User logged out");
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+router.get("/user", async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    res.status(200).json(user);
+  } catch (err) {
+    return err;
   }
 });
 

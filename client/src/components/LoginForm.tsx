@@ -2,6 +2,7 @@ import { useState } from "react";
 import useStore from "../store";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import logoutUserDev from "../utils/logoutUserDev";
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState<{
@@ -26,7 +27,8 @@ const LoginForm = () => {
       });
       const data = await res.json();
       store.populateUserInfo(data);
-      store.user.isLoggedIn = true;
+      console.log("STORE DATA BELOW");
+      console.log(store);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -79,6 +81,13 @@ const LoginForm = () => {
       <Link to="/signup">
         <p className="hover:text-blue-500">Sign up?</p>
       </Link>
+      <button
+        className="bg-red-600 text-white"
+        type="submit"
+        onClick={() => logoutUserDev(store)}
+      >
+        LOGOUT FOR DEV ONLY
+      </button>
     </div>
   );
 };

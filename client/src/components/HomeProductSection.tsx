@@ -30,7 +30,7 @@ const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
 
   // why do we use rest parameters here?
   const inputRadioLabels = props.categoryList?.map((category, index) => (
-    <li>
+    <li key={index}>
       <input
         className="hidden peer"
         type="radio"

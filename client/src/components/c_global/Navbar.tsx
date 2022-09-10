@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import getInitials from "../../utils/getInitials";
+import useState from "react";
+import logoutUserDev from "../../utils/logoutUserDev";
 import useStore from "../../store";
 
 const Navbar = () => {
   const store = useStore();
-  const initials = getInitials(store.user?.fname, store.user?.lname);
 
   return (
     <div className="flex px-24 md:px-48">
