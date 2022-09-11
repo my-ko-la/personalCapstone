@@ -1,14 +1,15 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
-/* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.send("respond with a resource");
-});
+const {
+  registerUser,
+  loginUser,
+  getUser,
+} = require("../controllers/userController");
+const { protect } = require("../middleware/authMiddleware");
 
-router.post("/posttest", (req, res) => {
-  const username = req.body.username;
-  res.send(username);
-});
+router.post("/register", registerUser);
+router.post("/login", loginUser);
+router.get("/me", protect, getUser);
 
 module.exports = router;
