@@ -6,10 +6,13 @@ const logoutUserDev = async (store: UserStore<User>) => {
 
   const res = await fetch("http://localhost:5000/users/logout", {
     method: "PUT",
+    credentials: "include",
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "http://localhost:5173",
     },
     body: JSON.stringify(store.user),
+    mode: "cors",
   });
   store.reset();
   console.log(store);

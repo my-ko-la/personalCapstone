@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
+import { userAuthAtom } from "../atomStore";
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState<{
@@ -10,6 +12,8 @@ const LoginForm = () => {
     email: "",
     password: "",
   });
+
+  const [user, setUser] = useAtom(userAuthAtom);
 
   const navigate = useNavigate();
 
@@ -21,8 +25,12 @@ const LoginForm = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(loginData),
+        mode: "cors",
       });
       const data = await res.json();
+      console.log("LOG FROM FORM");
+      setUser({ fname: data.fname, email: data.email });
+      console.log(user);
       navigate("/");
     } catch (err) {
       console.log(err);

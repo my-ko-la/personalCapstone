@@ -33,6 +33,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(
   cors({
     origin: "http://localhost:5173",
+    methdos: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 

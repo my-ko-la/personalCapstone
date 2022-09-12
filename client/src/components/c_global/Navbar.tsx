@@ -1,10 +1,37 @@
 import { Link } from "react-router-dom";
-import useState from "react";
-import logoutUserDev from "../../utils/logoutUserDev";
-import useStore from "../../store";
+import { useAtom } from "jotai";
+import { userAuthAtom } from "../../atomStore";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const store = useStore();
+  const [userSettings, setUserSettings] = useState({
+    fname: "Log In",
+    cart: [],
+  });
+
+  /*useEffect(() => {
+    const getUserData = async () => {
+      const res = await fetch("http://localhost:5000/users/me", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "http://localhost:5173",
+        },
+        mode: "cors",
+      });
+      const data = await res.json();
+      console.log("LOG FROM NAVBAR");
+      console.log(data);
+      if (data) {
+        setUserSettings((state) => ({
+          ...state,
+          fname: data.fname,
+          cart: data.cart,
+        }));
+      }
+    };
+    getUserData();
+  }, []);*/
 
   return (
     <div className="flex px-24 md:px-48">
