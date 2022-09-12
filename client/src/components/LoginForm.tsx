@@ -1,8 +1,6 @@
 import { useState } from "react";
-import useStore from "../store";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import logoutUserDev from "../utils/logoutUserDev";
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState<{
@@ -13,12 +11,11 @@ const LoginForm = () => {
     password: "",
   });
 
-  const store = useStore();
   const navigate = useNavigate();
 
   const sendLoginData = async () => {
     try {
-      const res = await fetch("http://localhost:5000/auth/login", {
+      const res = await fetch("http://localhost:5000/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,9 +23,6 @@ const LoginForm = () => {
         body: JSON.stringify(loginData),
       });
       const data = await res.json();
-      store.populateUserInfo(data);
-      console.log("STORE DATA BELOW");
-      console.log(store);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -81,12 +75,8 @@ const LoginForm = () => {
       <Link to="/signup">
         <p className="hover:text-blue-500">Sign up?</p>
       </Link>
-      <button
-        className="bg-red-600 text-white"
-        type="submit"
-        onClick={() => logoutUserDev(store)}
-      >
-        LOGOUT FOR DEV ONLY
+      <button className="bg-red-600 text-white" type="submit">
+        PAUSED: LOGOUT FOR DEV ONLY
       </button>
     </div>
   );
