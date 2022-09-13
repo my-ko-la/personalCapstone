@@ -50,7 +50,11 @@ const loginUser = AsyncHandler(async (req, res) => {
     user.save().then(
       res
         .status(200)
-        .cookie("token", user.token)
+        .cookie("auth-t", `${user.token}`, {
+          secure: true,
+          maxAge: 1000 * 60 * 60 * 2,
+        })
+        //.setHeader("Access-Control-Allow-Credentials", "true")
         .json({ ...userInfo, token: user.token })
     );
   } else {

@@ -9,10 +9,12 @@ const Navbar = () => {
     cart: [],
   });
 
-  /*useEffect(() => {
+  const [user] = useAtom(userAuthAtom);
+
+  useEffect(() => {
     const getUserData = async () => {
       const res = await fetch("http://localhost:5000/users/me", {
-        method: "GET",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "http://localhost:5173",
@@ -20,8 +22,6 @@ const Navbar = () => {
         mode: "cors",
       });
       const data = await res.json();
-      console.log("LOG FROM NAVBAR");
-      console.log(data);
       if (data) {
         setUserSettings((state) => ({
           ...state,
@@ -31,7 +31,7 @@ const Navbar = () => {
       }
     };
     getUserData();
-  }, []);*/
+  }, [user]);
 
   return (
     <div className="flex px-24 md:px-48">
@@ -99,9 +99,9 @@ const Navbar = () => {
           </a>
           <Link
             className="py-2 px-4 hover:bg-black hover:text-white hover:transition-all rounded-xl transition-all duration-800 hover:duration-800 hover:ease-linear"
-            to="/login"
+            to={user.token ? "/dashboard" : "/login"}
           >
-            Log in
+            {user.token ? `Hi, ${user.fname}` : "Login"}
           </Link>
         </div>
       </div>

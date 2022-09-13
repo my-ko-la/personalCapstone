@@ -13,7 +13,7 @@ const LoginForm = () => {
     password: "",
   });
 
-  const [user, setUser] = useAtom(userAuthAtom);
+  const [, setUser] = useAtom(userAuthAtom);
 
   const navigate = useNavigate();
 
@@ -21,6 +21,7 @@ const LoginForm = () => {
     try {
       const res = await fetch("http://localhost:5000/users/login", {
         method: "POST",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
@@ -28,9 +29,13 @@ const LoginForm = () => {
         mode: "cors",
       });
       const data = await res.json();
-      console.log("LOG FROM FORM");
-      setUser({ fname: data.fname, email: data.email });
-      console.log(user);
+      console.log(res);
+      setUser({
+        email: data.email,
+        fname: data.fname,
+        password: data.password,
+        token: data.token,
+      });
       navigate("/");
     } catch (err) {
       console.log(err);
