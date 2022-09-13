@@ -7,15 +7,32 @@ const productSchema = new Schema({
     amount: Number,
     currency: { type: String, enum: ["USD", "EUR"] },
   },
-  description: String,
+  description: [
+    {
+      property: String,
+      propertyDescription: String,
+    },
+  ],
   productImage: { type: String, required: true },
-  dimensions: {
-    height: Number,
-    width: Number,
-    depth: Number,
-  },
   isInStock: { type: Boolean, required: true },
   isOnSale: { type: Boolean, required: true },
+  ratingAndReviews: [
+    {
+      rating: {
+        type: Number || String,
+        min: 1,
+        max: 5,
+        default: "No rating yet",
+      },
+      reviews: [
+        {
+          type: String,
+          default: "No reviews yet",
+        },
+      ],
+    },
+  ],
+  frontEndOnlyCategory: { type: String, required: true },
   showcased: Boolean,
 });
 
