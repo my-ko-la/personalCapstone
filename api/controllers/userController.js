@@ -50,9 +50,10 @@ const loginUser = AsyncHandler(async (req, res) => {
     user.save().then(
       res
         .status(200)
+        .setHeader("Authorization", `Bearer ${user.token}`)
         .cookie("auth-t", `${user.token}`, {
           secure: true,
-          maxAge: 1000 * 60 * 60 * 2,
+          maxAge: 1000 * 60 * 60 * 3,
         })
         //.setHeader("Access-Control-Allow-Credentials", "true")
         .json({ ...userInfo, token: user.token })
@@ -67,7 +68,7 @@ const loginUser = AsyncHandler(async (req, res) => {
 // @route   GET /users/me
 // @access  Private/Protected
 const getUser = AsyncHandler(async (req, res) => {
-  const user = await User.findOne({ email: req.body.email });
+  const user = await User.findOne({ email: req.user.email });
   res.status(200).json(user);
 });
 

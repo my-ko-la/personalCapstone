@@ -1,37 +1,21 @@
 import { Link } from "react-router-dom";
-import { useAtom } from "jotai";
-import { userAuthAtom } from "../../atomStore";
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
-  const [userSettings, setUserSettings] = useState({
-    fname: "Log In",
-    cart: [],
-  });
+  const fetchUserData = async () => {
+    const res = await fetch("http://localhost:5000/users/me", {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer",
+      },
+      //mode: "cors",
+    });
+    return res.json();
+  };
 
-  const [user] = useAtom(userAuthAtom);
-
-  useEffect(() => {
-    const getUserData = async () => {
-      const res = await fetch("http://localhost:5000/users/me", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "http://localhost:5173",
-        },
-        mode: "cors",
-      });
-      const data = await res.json();
-      if (data) {
-        setUserSettings((state) => ({
-          ...state,
-          fname: data.fname,
-          cart: data.cart,
-        }));
-      }
-    };
-    getUserData();
-  }, [user]);
+  const { data, error } = useQuery(["user"], fetchUserData);
 
   return (
     <div className="flex px-24 md:px-48">
@@ -99,9 +83,9 @@ const Navbar = () => {
           </a>
           <Link
             className="py-2 px-4 hover:bg-black hover:text-white hover:transition-all rounded-xl transition-all duration-800 hover:duration-800 hover:ease-linear"
-            to={user.token ? "/dashboard" : "/login"}
+            to={!error ? "/dashboard" : "/login"}
           >
-            {user.token ? `Hi, ${user.fname}` : "Login"}
+            {data?.fname ? `Hi ${data.fname}` : "Login"}
           </Link>
         </div>
       </div>
