@@ -1,6 +1,4 @@
-import type { ShopItemProps } from "./ShopItem";
 import type { ShopItemPropsWITHDB } from "./ShopItem";
-import dataJSON from "../data/shop.json";
 import { useState } from "react";
 import renderProductByCategory from "../utils/renderProductByCategory";
 import { useQuery } from "@tanstack/react-query";
@@ -32,7 +30,6 @@ const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
       mode: "cors",
     });
     const data = await res.json();
-    console.log(data);
     return data;
   });
 

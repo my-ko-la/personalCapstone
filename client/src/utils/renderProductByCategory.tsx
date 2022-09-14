@@ -1,4 +1,3 @@
-import { ShopItemProps } from "../components/ShopItem";
 import { ShopItemPropsWITHDB } from "../components/ShopItem";
 import ShopItem from "../components/ShopItem";
 
@@ -12,12 +11,12 @@ const renderProductByCategory = (
 
   if (category) {
     intermediateData = data
-      .filter((item) => item?.category === category)
-      .filter((item) => item?.productPicture.endsWith(filter))
+      .filter((item) => item.category === category)
+      .filter((item) => item.productPicture.endsWith(filter))
       .map((item, index) => index < 4 && <ShopItem key={index} {...item} />);
   } else {
     intermediateData = data
-      .filter((item) => item?.productPicture.endsWith(filter))
+      .filter((item) => item.productPicture.endsWith(filter))
       .map((item, index) => index < 4 && <ShopItem key={index} {...item} />);
   }
   return intermediateData;

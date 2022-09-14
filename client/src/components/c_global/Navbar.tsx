@@ -17,8 +17,6 @@ const Navbar = () => {
 
   const { isLoading, data, error } = useQuery(["user"], fetchUserData);
 
-  if (isLoading) return <div>Loading...</div>;
-
   return (
     <div className="flex px-24 md:px-48">
       <div className="flex flex-row justify-between font-poppins text-xs">

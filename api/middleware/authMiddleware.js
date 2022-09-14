@@ -11,7 +11,7 @@ const protect = AsyncHandler(async (req, res, next) => {
   ) {
     try {
       // Get token from header
-      token = req.headers.cookie.split("=")[1];
+      token = await req.headers.cookie.split("=")[1];
 
       // Verify token
       const decoded = jwt.verify(token, process.env.SEC_JWT);

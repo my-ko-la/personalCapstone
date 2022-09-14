@@ -124,12 +124,18 @@ const ShopItem: React.FunctionComponent<ShopItemPropsWITHDB> = (props) => {
           </p>
         )}
         {!props.isOnSale && <p className=" mt-5"></p>}
-        <div>
-          <p className="font-bold">
+        <div className="flex flex-row justify-between">
+          <p className="text-sm inline font-bold">
             {props.price.currency} {props.price.amount}
           </p>
           {/* on submit here */}
-          <button type="submit">Add to Cart</button>
+          <button
+            className="inline text-xs px-2 mr-3 outline-2 border border-gray-600 rounded-xl
+            hover:bg-gray-600 hover:text-white transition-all ease-in duration-800 hover:duration-800"
+            type="submit"
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>
