@@ -33,4 +33,13 @@ const protect = AsyncHandler(async (req, res, next) => {
   }
 });
 
-module.exports = { protect };
+const decodeToken = (token) => {
+  console.log("indise decodeToken");
+  const decoded = jwt.verify(token, process.env.SEC_JWT);
+
+  console.log("token decoded");
+
+  return decoded;
+};
+
+module.exports = { protect, decodeToken };

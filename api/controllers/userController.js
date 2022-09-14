@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const CryptoJS = require("crypto-js");
 const User = require("../models/user");
 const AsyncHandler = require("express-async-handler");
+const Cart = require("../models/cart");
 
 // @desc    Register a User
 // @route   POST /users/register
@@ -17,7 +18,18 @@ const registerUser = AsyncHandler(async (req, res) => {
           process.env.SEC_HSH
         ).toString(),
       });
-      (user["token"] = makeToken(req.body._id)), res.status(201).json(user);
+
+      const cart = await Cart.create({ user: user._id });
+
+      const { hashedPassword, ...userWithoutPassword } = user._doc;
+      const cartData = cart._doc;
+
+      const returnObj = {
+        ...userWithoutPassword,
+        ...cartData,
+      };
+
+      res.status(201).json(returnObj);
     } catch (err) {
       res.status(400).send(err);
     }

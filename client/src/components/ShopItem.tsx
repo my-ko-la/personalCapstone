@@ -43,6 +43,8 @@ interface ShopItemProps {
 }
 
 const ShopItem: React.FunctionComponent<ShopItemProps> = (props) => {
+  const handleAddToCart = (e) => {};
+
   return (
     <div className="flex h-86 w-48 flex-col font-poppins transition-all ease-in delay-150">
       <span className="text-green-700 flex flex-row gap-2 items-center w-fit font-extralight text-center p-1 text-xs rounded-xl">
