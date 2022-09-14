@@ -27,7 +27,6 @@ const getUserCartInfo = async (req, res) => {
 const getProductInfo = AsyncHandler(async (req, res) => {
   try {
     const products = await Product.find({});
-    console.log("products", products);
     res.status(200).json(products);
   } catch (error) {
     console.log("getProductInfo error", error);
