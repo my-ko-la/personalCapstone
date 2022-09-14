@@ -1,4 +1,5 @@
 import type { ShopItemProps } from "./ShopItem";
+import type { ShopItemPropsWITHDB } from "./ShopItem";
 import dataJSON from "../data/shop.json";
 import { useState } from "react";
 import renderProductByCategory from "../utils/renderProductByCategory";
@@ -11,7 +12,7 @@ interface HomeProductSectionProps {
   productFilter: string;
   category: boolean;
   categoryList?: string[];
-  shopItems?: ShopItemProps;
+  shopItems?: ShopItemPropsWITHDB;
 }
 
 const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
@@ -22,11 +23,20 @@ const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
   );
 
   const { data, isLoading, error } = useQuery(["shopItems"], async () => {
-    const res = await fetch("http://localhost:5000/products/shop");
-    return res.json();
+    const res = await fetch("http://localhost:5000/products/shop", {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "cors",
+    });
+    const data = await res.json();
+    console.log(data);
+    return data;
   });
 
-  console.log("DATA ______", data);
+  if (isLoading) return <div>Loading...</div>;
 
   const shopItems = renderProductByCategory(
     data,

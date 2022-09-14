@@ -2,10 +2,6 @@ import { ShopItemProps } from "../components/ShopItem";
 import { ShopItemPropsWITHDB } from "../components/ShopItem";
 import ShopItem from "../components/ShopItem";
 
-const generateKey = () => {
-  return Math.random().toString(36).slice(2, 9);
-};
-
 const renderProductByCategory = (
   data: ShopItemPropsWITHDB[], //
   filter: string,
@@ -16,12 +12,12 @@ const renderProductByCategory = (
 
   if (category) {
     intermediateData = data
-      .filter((item) => item.category === category)
-      .filter((item) => item.productPicture.endsWith(filter))
+      .filter((item) => item?.category === category)
+      .filter((item) => item?.productPicture.endsWith(filter))
       .map((item, index) => index < 4 && <ShopItem key={index} {...item} />);
   } else {
     intermediateData = data
-      .filter((item) => item.productPicture.endsWith(filter))
+      .filter((item) => item?.productPicture.endsWith(filter))
       .map((item, index) => index < 4 && <ShopItem key={index} {...item} />);
   }
   return intermediateData;

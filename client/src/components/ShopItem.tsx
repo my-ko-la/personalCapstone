@@ -73,7 +73,7 @@ interface ShopItemPropsWITHDB {
   ratingAndReviews?: ratingAndReviews;
 }
 
-const ShopItem: React.FunctionComponent<ShopItemProps> = (props) => {
+const ShopItem: React.FunctionComponent<ShopItemPropsWITHDB> = (props) => {
   //const handleAddToCart = (e) => { };
 
   return (
@@ -101,14 +101,14 @@ const ShopItem: React.FunctionComponent<ShopItemProps> = (props) => {
         alt=""
       />
       <div className="flex pt-4 flex-row justify-between ">
-        {props.isRated ? (
-          showStars(props.rating)
+        {props.ratingAndReviews?.rating !== undefined ? (
+          showStars(props.ratingAndReviews.rating)
         ) : (
           <p className="text-xs font-extralight text-gray-300">Not Rated</p>
         )}
-        {props.isReviewed ? (
+        {props.ratingAndReviews?.reviews !== undefined ? (
           <p className="font-light text-gray-300 text-xs pr-3">
-            Reviews ({props.reviews})
+            Reviews ({props.ratingAndReviews.reviews.length})
           </p>
         ) : (
           <p className="text-xs pr-3 font-extralight text-gray-300">
@@ -120,13 +120,13 @@ const ShopItem: React.FunctionComponent<ShopItemProps> = (props) => {
       <div className="pt-3">
         {props.isOnSale && (
           <p className="font-extralight text-sm text-gray-400 line-through">
-            {props.currency} {props.price}
+            {props.price.currency} {props.price.amount}
           </p>
         )}
         {!props.isOnSale && <p className=" mt-5"></p>}
         <div>
           <p className="font-bold">
-            {props.currency} {props.price}
+            {props.price.currency} {props.price.amount}
           </p>
           {/* on submit here */}
           <button type="submit">Add to Cart</button>
