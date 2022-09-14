@@ -36,4 +36,11 @@ const productSchema = new Schema({
   showcased: Boolean,
 });
 
+productSchema.virtual("isRated").get(function () {
+  return this.ratingAndReviews.rating !== undefined || null || NaN;
+});
+
+productSchema.virtual("isReviewed").get(function () {
+  return this.ratingAndReviews.reviews !== "No reviews yet";
+});
 module.exports = mongoose.model("Product", productSchema);

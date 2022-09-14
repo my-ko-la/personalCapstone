@@ -36,14 +36,14 @@ interface ShopItemProps {
   rating: number;
   isReviewed: boolean;
   reviews?: number;
-  inStock: string;
+  isInStock: string;
   productPicture: string;
   showcased?: boolean;
   category?: string;
 }
 
 const ShopItem: React.FunctionComponent<ShopItemProps> = (props) => {
-  const handleAddToCart = (e) => {};
+  //const handleAddToCart = (e) => { };
 
   return (
     <div className="flex h-86 w-48 flex-col font-poppins transition-all ease-in delay-150">
@@ -62,7 +62,7 @@ const ShopItem: React.FunctionComponent<ShopItemProps> = (props) => {
             strokeLinecap="round"
           />
         </svg>
-        {props.inStock}
+        {props.isInStock}
       </span>
       <img
         className="w-40 h-36 self-center"
@@ -93,9 +93,13 @@ const ShopItem: React.FunctionComponent<ShopItemProps> = (props) => {
           </p>
         )}
         {!props.isOnSale && <p className=" mt-5"></p>}
-        <p className="font-bold">
-          {props.currency} {props.price}
-        </p>
+        <div>
+          <p className="font-bold">
+            {props.currency} {props.price}
+          </p>
+          {/* on submit here */}
+          <button type="submit">Add to Cart</button>
+        </div>
       </div>
     </div>
   );

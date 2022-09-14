@@ -6,15 +6,12 @@ const { decodeToken } = require("../middleware/authMiddleware.js");
 
 const getUserCartInfo = async (req, res) => {
   try {
-    console.log("this is the request --> ", req.headers);
+    // authorizaztion header for Bearer Token
     const token = req.headers.authorization.split(" ")[1];
-    console.log("token", token);
     const decoded = decodeToken(token);
 
-    console.log("token decoded");
     const user = await User.findById(decoded.id);
     const cart = await Cart.findOne({ user: user._id });
-    console.log("getUserCartInfo success");
 
     return { user, cart };
   } catch (error) {
@@ -28,16 +25,14 @@ const getUserCartInfo = async (req, res) => {
 
 const addToCart = AsyncHandler(async (req, res) => {
   // get user info from cookie
-  const { cart } = await getUserCartInfo(req, res);
+  const { user, cart } = await getUserCartInfo(req, res);
 
-  const itemExists = cart.items.find(
-    (item) => items.product == req.body.product
-  );
+  const itemExists = cart.items.find(req.body.product);
 
   if (itemExists) {
-    cart.items.product.amout++;
+    cart.items.product.amount++;
   } else {
-    cart.items.push(req.body);
+    cart.items.push(req.body.product);
   }
 
   cart.save().then((cart) => res.status(200).json(cart).json(user));
