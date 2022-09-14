@@ -15,7 +15,9 @@ const Navbar = () => {
     return res.json();
   };
 
-  const { data, error } = useQuery(["user"], fetchUserData);
+  const { isLoading, data, error } = useQuery(["user"], fetchUserData);
+
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <div className="flex px-24 md:px-48">
@@ -85,7 +87,7 @@ const Navbar = () => {
             className="py-2 px-4 hover:bg-black hover:text-white hover:transition-all rounded-xl transition-all duration-800 hover:duration-800 hover:ease-linear"
             to={!error ? "/dashboard" : "/login"}
           >
-            {data?.fname ? `Hi ${data.fname}` : "Login"}
+            {data?.fname ? `Hi, ${data.fname}!` : "Login"}
           </Link>
         </div>
       </div>
