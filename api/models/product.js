@@ -20,7 +20,7 @@ const productSchema = new Schema({
     {
       rating: {
         type: Number || String,
-        min: 1,
+        min: 0,
         max: 5,
         default: "No rating yet",
       },
@@ -37,7 +37,7 @@ const productSchema = new Schema({
 });
 
 productSchema.virtual("isRated").get(function () {
-  return this.ratingAndReviews.rating !== undefined || null || NaN;
+  return this.ratingAndReviews.rating !== 0;
 });
 
 productSchema.virtual("isReviewed").get(function () {

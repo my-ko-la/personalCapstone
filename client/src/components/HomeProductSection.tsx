@@ -1,7 +1,8 @@
 import type { ShopItemProps } from "./ShopItem";
-import data from "../data/shop.json";
+import dataJSON from "../data/shop.json";
 import { useState } from "react";
 import renderProductByCategory from "../utils/renderProductByCategory";
+import { useQuery } from "@tanstack/react-query";
 
 interface HomeProductSectionProps {
   title: string;
@@ -19,6 +20,13 @@ const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
   const [categoryShown, setCategoryShown] = useState(
     props.categoryList ? props.categoryList[0] : ""
   );
+
+  const { data, isLoading, error } = useQuery(["shopItems"], async () => {
+    const res = await fetch("http://localhost:5000/products/shop");
+    return res.json();
+  });
+
+  console.log("DATA ______", data);
 
   const shopItems = renderProductByCategory(
     data,

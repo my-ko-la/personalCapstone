@@ -26,6 +26,8 @@ interface ProductCategory  {
     category: msiCategoryDesktops | msiCategoryLaptops
 }*/
 
+import { useQuery } from "@tanstack/react-query";
+
 interface ShopItemProps {
   id?: number;
   name: string;
@@ -40,6 +42,35 @@ interface ShopItemProps {
   productPicture: string;
   showcased?: boolean;
   category?: string;
+}
+
+// temp until I migrate the data to the database
+type ratingAndReviews = {
+  rating: number;
+  reviews: string[];
+};
+
+type description = {
+  property: string;
+  propertyDescription: string;
+};
+
+type price = {
+  amount: number;
+  currency: "USD" | "EUR";
+};
+
+interface ShopItemPropsWITHDB {
+  id?: string;
+  name: string;
+  description: description[];
+  isOnSale: boolean;
+  price: price;
+  isInStock: string;
+  productPicture: string;
+  showcased?: boolean;
+  category?: string;
+  ratingAndReviews?: ratingAndReviews;
 }
 
 const ShopItem: React.FunctionComponent<ShopItemProps> = (props) => {
@@ -106,4 +137,5 @@ const ShopItem: React.FunctionComponent<ShopItemProps> = (props) => {
 };
 
 export type { ShopItemProps };
+export type { ShopItemPropsWITHDB };
 export default ShopItem;

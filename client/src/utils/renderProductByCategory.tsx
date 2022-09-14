@@ -1,4 +1,5 @@
 import { ShopItemProps } from "../components/ShopItem";
+import { ShopItemPropsWITHDB } from "../components/ShopItem";
 import ShopItem from "../components/ShopItem";
 
 const generateKey = () => {
@@ -6,7 +7,7 @@ const generateKey = () => {
 };
 
 const renderProductByCategory = (
-  data: ShopItemProps[],
+  data: ShopItemPropsWITHDB[], //
   filter: string,
   category?: string
 ) => {
