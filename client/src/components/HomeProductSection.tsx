@@ -11,6 +11,7 @@ interface HomeProductSectionProps {
   category: boolean;
   categoryList?: string[];
   shopItems?: ShopItemPropsWITHDB;
+  data: ShopItemPropsWITHDB[];
 }
 
 const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
@@ -20,23 +21,8 @@ const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
     props.categoryList ? props.categoryList[0] : ""
   );
 
-  const { data, isLoading, error } = useQuery(["shopItems"], async () => {
-    const res = await fetch("http://localhost:5000/products/shop", {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      mode: "cors",
-    });
-    const data = await res.json();
-    return data;
-  });
-
-  if (isLoading) return <div>Loading...</div>;
-
   const shopItems = renderProductByCategory(
-    data,
+    props.data,
     props.productFilter,
     categoryShown
   );

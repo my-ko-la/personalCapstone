@@ -53,12 +53,14 @@ const HomePage = () => {
           title="Custom Build"
           link="See All Custom Builds"
           productFilter="V6.png"
+          data={data}
           category={false}
         />
         <div className="pt-14"></div>
         <HomeProductSection
           bgImg="../public/images/msiLaptops.png"
           title="MSI Laptops"
+          data={data}
           link="See All Laptops"
           productFilter="laptop.png"
           category={true}
@@ -73,6 +75,7 @@ const HomePage = () => {
         <HomeProductSection
           bgImg="../public/images/desktops.png"
           title="Desktops"
+          data={data}
           link="See All Desktops"
           productFilter="desktop.png"
           category={true}
@@ -86,6 +89,7 @@ const HomePage = () => {
         <div className="pt-8"></div>
         <HomeProductSection
           bgImg="../public/images/gamingMonitors.png"
+          data={data}
           title="Gaming Monitors"
           link="See All Monitors"
           productFilter="monitor.png"
