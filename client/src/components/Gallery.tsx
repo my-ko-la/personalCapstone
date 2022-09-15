@@ -13,8 +13,7 @@ const Gallery: React.FunctionComponent<GalleryProps> = (props) => {
     .map((item, index) => <ShopItem key={index} {...item} />);
 
   const responsive = {
-    0: { items: 1 },
-    396: { items: 1 },
+    240: { items: 1 },
     768: { items: 2 },
     1280: { items: 4 },
     1440: { items: 5 },
@@ -23,6 +22,11 @@ const Gallery: React.FunctionComponent<GalleryProps> = (props) => {
     <AliceCarousel
       mouseTracking
       disableDotsControls={true}
+      autoWidth={true}
+      autoPlay={true}
+      autoPlayInterval={3000}
+      autoPlayStrategy={"action"}
+      animationEasingFunction={"ease-out"}
       infinite={true}
       responsive={responsive}
       items={shopItems}

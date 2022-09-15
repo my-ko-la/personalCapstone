@@ -52,14 +52,16 @@ const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
   ));
 
   return (
-    <section className="flex flex-col h-[22rem] relative px-48 justify-center">
-      {props.category && (
-        <form className="flex flex-row text-md gap-5 text-gray-400">
-          <ul className="flex flex-row gap-3 pb-2">{inputRadioLabels}</ul>
-        </form>
-      )}
+    <section className="flex flex-col h-[22rem] relative lg:px-48 md:justify-center">
+      <div className="hidden sm:block">
+        {props.category && (
+          <form className="flex flex-row text-md gap-5 text-gray-400">
+            <ul className="flex flex-row gap-3 pb-2">{inputRadioLabels}</ul>
+          </form>
+        )}
+      </div>
       <div className="pt-2"></div>
-      <div className="flex flex-row gap-3">
+      <div className="flex flex-col md:flex-row gap-3">
         <div className="flex flex-col justify-center relative items-center">
           <p className="absolute text-white font-semibold text-lg left-1/5 top-1/2">
             {props.title}

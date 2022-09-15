@@ -27,12 +27,12 @@ const HomePage = () => {
   return (
     <>
       <TopNav />
-      <main className="mb-auto">
+      <main className="font-poppins mb-auto">
         <img
           className="sm:flex justify-center hidden md:inline-flex md:px-48"
           src={msiWallpaper}
         ></img>
-        <div className="pt-10"></div>
+        <div className="pt-4 md:pt-10"></div>
         <div className="flex flex-row pl-3 md:px-48 md:justify-between">
           <span className="text-xl md:text-md font-bold">New Products</span>
           <a className="text-blue-300 hidden sm:block underline text-xs">
@@ -40,14 +40,14 @@ const HomePage = () => {
           </a>
         </div>
         <div className="pt-6"></div>
-        <div className="md:px-48">
+        <div className="px-10 md:px-48">
           <Gallery data={data} />
         </div>
-        <div className="pt-6"></div>
-        <div className="max-w-xs flex flex-grow">
+        <div className="pt-5"></div>
+        <div className="max-w-sm px-2 box-border pb-8">
           <ZipAdd />
         </div>
-        <div className="pt-8"></div>
+        <div className="md:pt-10"></div>
         <HomeProductSection
           bgImg="../public/images/customBuild.png"
           title="Custom Build"

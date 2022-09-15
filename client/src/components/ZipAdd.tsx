@@ -1,7 +1,7 @@
 const ZipAdd = () => {
   return (
-    <div className="flex flex-col">
-      <div className="flex flex-row justify-center items-center gap-4  sm:w-[1060px] bg-[#f7f4ff] h-16 md:px-24">
+    <div className="flex flex-col ">
+      <div className="px-3 flex flex-row min-h-full justify-center items-center gap-4 max-w-full  sm:w-[1060px] bg-[#f7f4ff] h-16 md:px-24">
         <svg
           width="77"
           height="27"
