@@ -18,8 +18,8 @@ const Navbar = () => {
   const { isLoading, data, error } = useQuery(["user"], fetchUserData);
 
   return (
-    <div className="flex px-24 md:px-48">
-      <div className="flex flex-row justify-between font-poppins text-xs">
+    <div className="flex flex-col sm:flex-row px-2 md:px-48">
+      <div className="flex flex-row max-w-[390px] sm:w-full justify-between font-poppins text-xs">
         <Link to="/">
           <svg
             className=""
@@ -35,7 +35,7 @@ const Navbar = () => {
             />
           </svg>
         </Link>
-        <div className="flex grow flex-row items-center gap-4">
+        <div className="hidden sm:flex grow flex-row items-center gap-4">
           <a href="">Laptops</a>
           <a href="">Desktop PCs</a>
           <a href="">Networking Devices</a>
@@ -51,7 +51,7 @@ const Navbar = () => {
           </button>
         </div>
         <div className="flex flex-row gap-3 items-center ml-4">
-          <a href="">
+          <a className="hidden sm:block" href="">
             <svg
               width="17"
               height="16"
@@ -67,10 +67,10 @@ const Navbar = () => {
               />
             </svg>
           </a>
-          <a href="">
+          <a className="block sm:flex" href="">
             <svg
-              width="25"
-              height="25"
+              width="35"
+              height="35"
               viewBox="0 0 25 25"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@ const Navbar = () => {
             </svg>
           </a>
           <Link
-            className="py-2 px-4 hover:bg-black hover:text-white hover:transition-all rounded-xl transition-all duration-800 hover:duration-800 hover:ease-linear"
+            className="py-2 px-4 hover:bg-black hover:text-white hover:transition-all text-xl rounded-xl transition-all duration-800 hover:duration-800 hover:ease-linear"
             to={!error ? "/dashboard" : "/login"}
           >
             {data?.fname ? `Hi, ${data.fname}!` : "Login"}

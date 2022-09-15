@@ -23,7 +23,7 @@ const getUserCartInfo = async (req, res) => {
 // @route   POST /users/:id/cart/add
 // @access  Private/Protected
 
-const addToCart = AsyncHandler(async (req, res) => {
+const addItemToCart = AsyncHandler(async (req, res) => {
   // get user info from cookie
   const { user, cart } = await getUserCartInfo(req, res);
 
@@ -78,4 +78,4 @@ const getCart = AsyncHandler(async (req, res) => {
 
 // @desc    Helper function to get cart
 
-module.exports = { getCart, addToCart, decrementFromCart };
+module.exports = { getCart, addItemToCart, decrementFromCart };

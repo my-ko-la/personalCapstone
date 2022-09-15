@@ -1,17 +1,21 @@
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import ShopItem from "./ShopItem";
-import data from "../data/shop.json";
+import ShopItem, { ShopItemPropsWITHDB } from "./ShopItem";
+//import data from "../data/shop.json";
 
-const Gallery = () => {
-  const shopItems = data
+interface GalleryProps {
+  data: ShopItemPropsWITHDB[];
+}
+
+const Gallery: React.FunctionComponent<GalleryProps> = (props) => {
+  const shopItems = props?.data
     .filter((item) => item.showcased)
     .map((item, index) => <ShopItem key={index} {...item} />);
 
   const responsive = {
     0: { items: 1 },
-    396: { items: 2 },
-    768: { items: 3 },
+    396: { items: 1 },
+    768: { items: 2 },
     1280: { items: 4 },
     1440: { items: 5 },
   };

@@ -1,5 +1,4 @@
 import showStars from "../utils/showStars";
-
 /*enum Availability {
     inStock="in stock", 
     checkAvailability = "check availability", 
@@ -75,6 +74,8 @@ interface ShopItemPropsWITHDB {
 
 const ShopItem: React.FunctionComponent<ShopItemPropsWITHDB> = (props) => {
   //const handleAddToCart = (e) => { };
+
+  //const {isLoading, data, error} = useQuery(["sendToCart"], async () => {
 
   return (
     <div className="flex h-86 w-48 flex-col font-poppins transition-all ease-in delay-150">

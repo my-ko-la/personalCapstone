@@ -1,7 +1,7 @@
 const ZipAdd = () => {
   return (
-    <div className="flex justify-center">
-      <div className="flex flex-row justify-center items-center gap-4  sm:w-[1060px] bg-[#f7f4ff] h-16 px-24">
+    <div className="flex flex-col">
+      <div className="flex flex-row justify-center items-center gap-4  sm:w-[1060px] bg-[#f7f4ff] h-16 md:px-24">
         <svg
           width="77"
           height="27"
@@ -45,7 +45,7 @@ const ZipAdd = () => {
             </clipPath>
           </defs>
         </svg>
-        <p className="border-l  outline-4 text-[#272560] border-cyan-500 pl-4">
+        <p className="border-l text-xs sm:text-md outline-4 text-[#272560] border-cyan-500 pl-4">
           <b>own</b> it now, up to 6 months interest free{" "}
           <a href="" className="underline text-xs">
             learn more

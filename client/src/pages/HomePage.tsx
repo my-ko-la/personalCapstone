@@ -6,8 +6,24 @@ import Footer from "../components/c_global/Footer";
 import ZipAdd from "../components/ZipAdd";
 import HomeProductSection from "../components/HomeProductSection";
 import QuoteReview from "../components/QuoteReview";
+import { useQuery } from "@tanstack/react-query";
 
 const HomePage = () => {
+  const { data, isLoading, error } = useQuery(["shopItems"], async () => {
+    const res = await fetch("http://localhost:5000/products/shop", {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "cors",
+    });
+    const data = await res.json();
+    return data;
+  });
+
+  if (isLoading) return <div>WUBA BUBA</div>;
+
   return (
     <>
       <TopNav />
@@ -17,19 +33,20 @@ const HomePage = () => {
           src={msiWallpaper}
         ></img>
         <div className="pt-10"></div>
-        <div className="flex flex-row px-24 md:px-48 justify-between">
-          <span className="font-bold">New Products</span>
-          <a className="text-blue-300 underline text-xs">
+        <div className="flex flex-row pl-3 md:px-48 md:justify-between">
+          <span className="text-xl md:text-md font-bold">New Products</span>
+          <a className="text-blue-300 hidden sm:block underline text-xs">
             See All New Products
           </a>
         </div>
         <div className="pt-6"></div>
         <div className="md:px-48">
-          <Gallery />
+          <Gallery data={data} />
         </div>
         <div className="pt-6"></div>
-        <ZipAdd />
-
+        <div className="max-w-xs flex flex-grow">
+          <ZipAdd />
+        </div>
         <div className="pt-8"></div>
         <HomeProductSection
           bgImg="../public/images/customBuild.png"
