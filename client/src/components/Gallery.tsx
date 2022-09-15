@@ -22,7 +22,7 @@ const Gallery: React.FunctionComponent<GalleryProps> = (props) => {
     <AliceCarousel
       mouseTracking
       disableDotsControls={true}
-      autoWidth={true}
+      autoWidth={false}
       autoPlay={true}
       autoPlayInterval={3000}
       autoPlayStrategy={"action"}

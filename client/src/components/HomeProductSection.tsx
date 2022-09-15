@@ -52,7 +52,7 @@ const HomeProductSection: React.FunctionComponent<HomeProductSectionProps> = (
   ));
 
   return (
-    <section className="flex flex-col h-[22rem] relative lg:px-48 md:justify-center">
+    <section className="grid grid-cols-1 h-[22rem] relative lg:px-48">
       <div className="hidden sm:block">
         {props.category && (
           <form className="flex flex-row text-md gap-5 text-gray-400">

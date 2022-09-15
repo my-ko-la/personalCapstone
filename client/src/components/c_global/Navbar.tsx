@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <div className="flex flex-col sm:flex-row px-2 md:px-48">
-      <div className="flex flex-row max-w-[390px] sm:w-full justify-between font-poppins text-xs">
+      <div className="flex flex-row max-w-[390px] md:w-full justify-between font-poppins text-xs">
         <Link to="/">
           <svg
             className=""
@@ -35,7 +35,7 @@ const Navbar = () => {
             />
           </svg>
         </Link>
-        <div className="hidden sm:flex grow flex-row items-center gap-4">
+        <div className="hidden sm:flex flex-row text-xs lg:whitespace-nowrap items-center lg:gap-5 lg:text-xs">
           <a href="">Laptops</a>
           <a href="">Desktop PCs</a>
           <a href="">Networking Devices</a>
@@ -44,17 +44,17 @@ const Navbar = () => {
           <a href="">All Other Products</a>
           <a href="">Repairs</a>
           <button
-            className="text-blue-600 transition-colors duration-800 border-2 font-bold rounded-2xl px-5 h-8 md:text-xs border-blue-600
+            className="text-blue-600  transition-colors duration-800 border-2 font-bold rounded-2xl px-5 md:px-8 h-8 md:text-xs border-blue-600
           hover:transition-all hover:text-white hover:bg-blue-600 hover:duration-800"
           >
-            Our Deals
+            Deals
           </button>
         </div>
-        <div className="flex flex-row gap-3 items-center ml-4">
+        <div className="flex flex-row lg:gap-1 gap-4 items-center lg:ml-5 mr-5">
           <a className="hidden sm:block" href="">
             <svg
-              width="17"
-              height="16"
+              width="30"
+              height="18"
               viewBox="0 0 17 16"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -67,10 +67,10 @@ const Navbar = () => {
               />
             </svg>
           </a>
-          <a className="block sm:flex" href="">
+          <a className="block lg:flex" href="">
             <svg
-              width="35"
-              height="35"
+              width="30 "
+              height="25"
               viewBox="0 0 25 25"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@ const Navbar = () => {
             </svg>
           </a>
           <Link
-            className="py-2 px-4 hover:bg-black hover:text-white hover:transition-all text-xl rounded-xl transition-all duration-800 hover:duration-800 hover:ease-linear"
+            className="py-2  px-0 lg:px-1 hover:bg-black hover:text-white hover:transition-all text-xl lg:text-sm lg:w-20 lg:text-center lg:whitespace-nowrap  rounded-xl transition-all duration-800 hover:duration-800 hover:ease-linear"
             to={!error ? "/dashboard" : "/login"}
           >
             {data?.fname ? `Hi, ${data.fname}!` : "Login"}

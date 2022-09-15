@@ -9,7 +9,7 @@ const TopBar = () => {
         items-center md:px-28"
     >
       <OpeningHours />
-      <div className="flex flex-col items-center flex-wrap gap-1 text-xs w-full md:text-sm transition-all ease-linear duration-200">
+      <div className="flex flex-col md:flex-row md:justify-center md:text-xs items-center flex-wrap gap-1 text-xs w-full transition-all ease-linear duration-200">
         <h4 className="text-gray-400">
           Visit our showroom at 1234 Street, Address City
         </h4>

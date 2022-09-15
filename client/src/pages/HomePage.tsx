@@ -22,7 +22,7 @@ const HomePage = () => {
     return data;
   });
 
-  if (isLoading) return <div>WUBA BUBA</div>;
+  if (isLoading) return <div>🧐</div>;
 
   return (
     <>
@@ -44,7 +44,7 @@ const HomePage = () => {
           <Gallery data={data} />
         </div>
         <div className="pt-5"></div>
-        <div className="max-w-sm px-2 box-border pb-8">
+        <div className="max-w-sm md:max-w-lg lg:flex lg:flex-row lg:px-48 lg:flex-grow pb-8">
           <ZipAdd />
         </div>
         <div className="md:pt-10"></div>
