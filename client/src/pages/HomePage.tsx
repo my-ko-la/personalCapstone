@@ -60,8 +60,8 @@ const HomePage = () => {
         <div className="pt-6"></div>
         <div className="flex flex-row justify-center">
           <ul
-            className="inline-grid 
-          grid-cols-1 gap-y-5
+            className="grid 
+          grid-cols-2 gap-y-5 sm:gap-x-3
           md:grid-cols-3 md:grid-flow-row md:gap-2
           lg:grid-cols-5 lg:grid-rows-4 lg:gap-x-5 lg:gap-y-10 "
           >
@@ -69,24 +69,28 @@ const HomePage = () => {
               bgImg="../public/images/customBuild.png"
               title="Custom Build"
               link="See All Custom Builds"
+              gridPos="sm:col-span-2 sm:row-start-1"
             />
             {customBuild}
             <HomePageBanner
               bgImg="../public/images/msiLaptops.png"
               title="MSI Laptops"
               link="See All Laptops"
+              gridPos="sm:col-span-2 sm:row-start-4"
             />
             {msiLaptops}
             <HomePageBanner
               bgImg="../public/images/desktops.png"
               title="Desktops"
               link="See All Desktops"
+              gridPos="sm:col-span-2 sm:row-start-7"
             />
             {desktops}
             <HomePageBanner
               bgImg="../public/images/gamingMonitors.png"
               title="Gaming Monitors"
               link="See All Monitors"
+              gridPos="sm:col-span-2 sm:row-start-10"
             />
             {gamingMonitors}
           </ul>

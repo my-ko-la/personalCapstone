@@ -34,7 +34,7 @@ const Footer = () => {
           <p className="w-52">Address</p>
         </div>
         <div className="py-2"></div>
-        <div className="hidden md:flex flex-row font-light text-xs justify-between">
+        <div className="hidden   md:flex flex-row font-light text-xs justify-between">
           <div className="flex flex-col w-52 leading-5">
             <Link to="/about">About Us</Link>
             <a href="">About Zip</a>

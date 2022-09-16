@@ -1,0 +1,137 @@
+Date : 2022-09-16 22:45:55
+Directory : /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone
+Total : 87 files,  47837 codes, 796 comments, 390 blanks, all 49023 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JavaScript         |         25 |     34,609 |        751 |        185 |     35,545 |
+| JSON               |          9 |     11,384 |          0 |         22 |     11,406 |
+| TypeScript React   |         31 |      1,632 |         42 |        133 |      1,807 |
+| TypeScript         |          6 |         67 |          3 |         16 |         86 |
+| JSON with Comments |          2 |         50 |          0 |          2 |         52 |
+| Pug                |          6 |         32 |          0 |         10 |         42 |
+| CSS                |          3 |         24 |          0 |          7 |         31 |
+| HTML               |          1 |         19 |          0 |          1 |         20 |
+| Markdown           |          3 |         17 |          0 |         14 |         31 |
+| Properties         |          1 |          3 |          0 |          0 |          3 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                   |         87 |     47,837 |        796 |        390 |     49,023 |
+| api                                                                                                                 |         27 |      3,966 |         54 |        130 |      4,150 |
+| api/controllers                                                                                                     |          4 |        181 |         44 |         48 |        273 |
+| api/middleware                                                                                                      |          1 |         32 |          4 |         10 |         46 |
+| api/models                                                                                                          |          5 |        134 |          0 |         16 |        150 |
+| api/public                                                                                                          |          2 |         14 |          0 |          4 |         18 |
+| api/public/stylesheets                                                                                              |          2 |         14 |          0 |          4 |         18 |
+| api/routes                                                                                                          |          5 |         84 |          1 |         25 |        110 |
+| api/views                                                                                                           |          6 |         32 |          0 |         10 |         42 |
+| client                                                                                                              |         59 |     43,864 |        742 |        253 |     44,859 |
+| client/.vite                                                                                                        |          9 |     34,140 |        696 |         69 |     34,905 |
+| client/.vite/deps                                                                                                   |          9 |     34,140 |        696 |         69 |     34,905 |
+| client/src                                                                                                          |         40 |      2,132 |         44 |        173 |      2,349 |
+| client/src/components                                                                                               |         19 |      1,306 |         37 |         93 |      1,436 |
+| client/src/components/c_global                                                                                      |          9 |        692 |          1 |         32 |        725 |
+| client/src/data                                                                                                     |          2 |        420 |          0 |         17 |        437 |
+| client/src/pages                                                                                                    |          8 |        231 |          0 |         25 |        256 |
+| client/src/utils                                                                                                    |          4 |         83 |          6 |         16 |        105 |
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                                            | language           | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/README.md                                           | Markdown           |          7 |          0 |          7 |         14 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/.env                                            | Properties         |          3 |          0 |          0 |          3 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/app.js                                          | JavaScript         |         71 |          5 |         15 |         91 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/controllers/cartController.js                   | JavaScript         |         46 |         17 |         19 |         82 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/controllers/misc.js                             | JavaScript         |         41 |          3 |          4 |         48 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/controllers/productController.js                | JavaScript         |         26 |         14 |         11 |         51 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/controllers/userController.js                   | JavaScript         |         68 |         10 |         14 |         92 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/middleware/authMiddleware.js                    | JavaScript         |         32 |          4 |         10 |         46 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/models/cart.js                                  | JavaScript         |         22 |          0 |          3 |         25 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/models/order.js                                 | JavaScript         |         23 |          0 |          3 |         26 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/models/payment.js                               | JavaScript         |         13 |          0 |          3 |         16 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/models/product.js                               | JavaScript         |         43 |          0 |          4 |         47 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/models/user.js                                  | JavaScript         |         33 |          0 |          3 |         36 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/package-lock.json                               | JSON               |      3,384 |          0 |          1 |      3,385 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/package.json                                    | JSON               |         31 |          0 |          1 |         32 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/public/stylesheets/style 2.css                  | CSS                |          7 |          0 |          2 |          9 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/public/stylesheets/style.css                    | CSS                |          7 |          0 |          2 |          9 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/routes/auth.js                                  | JavaScript         |         55 |          0 |         10 |         65 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/routes/carts.js                                 | JavaScript         |          6 |          0 |          4 |         10 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/routes/index.js                                 | JavaScript         |          6 |          1 |          3 |         10 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/routes/products.js                              | JavaScript         |          5 |          0 |          4 |          9 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/routes/users.js                                 | JavaScript         |         12 |          0 |          4 |         16 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/views/error 2.jade                              | Pug                |          5 |          0 |          2 |          7 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/views/error.jade                                | Pug                |          5 |          0 |          2 |          7 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/views/index 2.jade                              | Pug                |          4 |          0 |          2 |          6 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/views/index.jade                                | Pug                |          4 |          0 |          2 |          6 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/views/layout 2.jade                             | Pug                |          7 |          0 |          1 |          8 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/api/views/layout.jade                               | Pug                |          7 |          0 |          1 |          8 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/.eslintrc.json                               | JSON with Comments |         26 |          0 |          1 |         27 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/.vite/deps/_metadata.json                    | JSON               |         47 |          0 |          0 |         47 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/.vite/deps/chunk-7BNY4ODL.js                 | JavaScript         |      1,825 |         12 |          4 |      1,841 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/.vite/deps/package.json                      | JSON               |          1 |          0 |          0 |          1 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/.vite/deps/react-alice-carousel.js           | JavaScript         |      2,150 |         42 |         42 |      2,234 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/.vite/deps/react-dom_client.js               | JavaScript         |     27,442 |         38 |          7 |     27,487 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/.vite/deps/react-router-dom.js               | JavaScript         |        910 |        576 |          6 |      1,492 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/.vite/deps/react.js                          | JavaScript         |          7 |          2 |          2 |         11 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/.vite/deps/react_jsx-dev-runtime.js          | JavaScript         |        873 |         13 |          4 |        890 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/.vite/deps/react_jsx-runtime.js              | JavaScript         |        885 |         13 |          4 |        902 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/README.md                                    | Markdown           |          2 |          0 |          1 |          3 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/index.html                                   | HTML               |         19 |          0 |          1 |         20 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/package-lock.json                            | JSON               |      7,456 |          0 |          1 |      7,457 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/package.json                                 | JSON               |         36 |          0 |          1 |         37 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/postcss.config.cjs                           | JavaScript         |          6 |          0 |          1 |          7 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/App.tsx                                  | TypeScript React   |         26 |          0 |          3 |         29 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/atomStore.ts                             | TypeScript         |          7 |          0 |          2 |          9 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/backlog.md                               | Markdown           |          8 |          0 |          6 |         14 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/FormInput.tsx                 | TypeScript React   |         30 |          1 |          5 |         36 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/Gallery.tsx                   | TypeScript React   |         32 |          1 |          5 |         38 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/HomePageBanner.tsx            | TypeScript React   |         25 |          0 |          3 |         28 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/HomeProductSection.tsx        | TypeScript React   |        100 |          1 |          7 |        108 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/InfoSection.tsx               | TypeScript React   |         33 |          0 |          3 |         36 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/LoginForm.tsx                 | TypeScript React   |         87 |          0 |         12 |         99 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/QuoteReview.tsx               | TypeScript React   |         23 |          0 |          4 |         27 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/ShopItem.tsx                  | TypeScript React   |        108 |         28 |         11 |        147 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/SignUpForm.tsx                | TypeScript React   |        118 |          4 |          9 |        131 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/ZipAdd.tsx                    | TypeScript React   |         58 |          1 |          2 |         61 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/c_global/Cart.tsx             | TypeScript React   |          4 |          0 |          2 |          6 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/c_global/Footer.tsx           | TypeScript React   |        135 |          0 |          3 |        138 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/c_global/Navbar.tsx           | TypeScript React   |         91 |          1 |          5 |         97 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/c_global/NumberAndSocials.tsx | TypeScript React   |         32 |          0 |          2 |         34 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/c_global/OpeningHours.tsx     | TypeScript React   |        121 |          0 |          7 |        128 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/c_global/PaymentMethods.tsx   | TypeScript React   |        181 |          0 |          2 |        183 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/c_global/PreFooter.tsx        | TypeScript React   |         93 |          0 |          4 |         97 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/c_global/TopBar.tsx           | TypeScript React   |         23 |          0 |          4 |         27 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/components/c_global/TopNav.tsx           | TypeScript React   |         12 |          0 |          3 |         15 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/data/about.json                          | JSON               |         37 |          0 |          0 |         37 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/data/shop.json                           | JSON               |        383 |          0 |         17 |        400 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/index.css                                | CSS                |         10 |          0 |          3 |         13 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/main.tsx                                 | TypeScript React   |          9 |          0 |          2 |         11 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/pages/About.tsx                          | TypeScript React   |         24 |          0 |          4 |         28 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/pages/Cart.tsx                           | TypeScript React   |          0 |          0 |          1 |          1 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/pages/Checkout.tsx                       | TypeScript React   |          0 |          0 |          1 |          1 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/pages/ContactUs.tsx                      | TypeScript React   |         72 |          0 |          6 |         78 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/pages/CustomerPage.tsx                   | TypeScript React   |          0 |          0 |          1 |          1 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/pages/HomePage.tsx                       | TypeScript React   |         98 |          0 |          6 |        104 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/pages/Login.tsx                          | TypeScript React   |         19 |          0 |          3 |         22 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/pages/SignUp.tsx                         | TypeScript React   |         18 |          0 |          3 |         21 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/types.ts                                 | TypeScript         |         32 |          0 |          5 |         37 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/utils/getInitials.ts                     | TypeScript         |          6 |          0 |          2 |          8 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/utils/logoutUserDev.ts                   | TypeScript         |         17 |          1 |          4 |         22 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/utils/renderProductByCategory.tsx        | TypeScript React   |         35 |          3 |          4 |         42 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/utils/showStars.tsx                      | TypeScript React   |         25 |          2 |          6 |         33 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/src/vite-env.d.ts                            | TypeScript         |          0 |          1 |          1 |          2 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/tailwind.config.cjs                          | JavaScript         |          9 |          1 |          1 |         11 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/tsconfig.json                                | JSON with Comments |         24 |          0 |          1 |         25 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/tsconfig.node.json                           | JSON               |          9 |          0 |          1 |         10 |
+| /Users/mykolabrechko/Desktop/old mac data/Odin/personalCapstone/client/vite.config.ts                               | TypeScript         |          5 |          1 |          2 |          8 |
+| Total                                                                                                               |                    |     47,837 |        796 |        390 |     49,023 |
++---------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

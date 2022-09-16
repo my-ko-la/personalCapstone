@@ -16,7 +16,7 @@ const renderProductByCategory = (
       .map(
         (item, index) =>
           index < 4 && (
-            <li className="place-self-center border-2 outline-2 border-cyan-200">
+            <li className="place-self-center inline border-2 outline-2 border-cyan-200">
               <ShopItem key={index} {...item} />
             </li>
           )

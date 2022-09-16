@@ -77,7 +77,7 @@ const ShopItem: React.FunctionComponent<ShopItemPropsWITHDB> = (props) => {
 
   return (
     <div className="flex justify-center shadow-md my-2 mx-auto rounded-xl p-4 h-86 md:w-60 max-w-xs flex-col font-poppins transition-all ease-in delay-150">
-      <span className="text-green-700 flex flex-row gap-2 items-center w-fit font-extralight text-center p-1 text-xs rounded-xl">
+      <span className="text-green-600 flex flex-row gap-2 items-center w-fit font-extralight text-center p-1 text-xs rounded-xl">
         <svg
           width="11"
           height="10"

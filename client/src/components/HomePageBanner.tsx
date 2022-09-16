@@ -2,11 +2,12 @@ interface BannerProps {
   title: string;
   link: string;
   bgImg: string;
+  gridPos?: string;
 }
 
 const HomePageBanner: React.FunctionComponent<BannerProps> = (props) => {
   return (
-    <li className="place-self-center">
+    <li className={`place-self-center ${props.gridPos}`}>
       <div className="flex flex-col justify-center relative items-center">
         <p className="absolute text-white font-semibold text-lg left-1/5 top-1/2">
           {props.title}

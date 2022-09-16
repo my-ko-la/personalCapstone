@@ -83,7 +83,7 @@ const Navbar = () => {
           </a>
           <Link
             className="py-2  px-0 lg:px-1 hover:bg-black hover:text-white hover:transition-all text-xl lg:text-sm lg:w-20 lg:text-center lg:whitespace-nowrap  rounded-xl transition-all duration-800 hover:duration-800 hover:ease-linear"
-            to={!error ? "/dashboard" : "/login"}
+            to={data ? "/dashboard" : "/login"}
           >
             {data?.fname ? `Hi, ${data.fname}!` : "Login"}
           </Link>
