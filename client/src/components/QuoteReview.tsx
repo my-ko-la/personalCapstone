@@ -4,7 +4,7 @@ const QuoteReview = () => {
   const [quote, setQuote] = useState<number | null>(null);
 
   return (
-    <section className="h-[480px] w-full bg-white flex flex-row justify-center items-center font-poppins">
+    <section className="hidden md:flex md:h-[480px] md:w-full bg-white md:flex-row justify-center items-center font-poppins">
       <div className="bg-gray-100 h-80 grid grid-col-7 grid-row-5 px-10 py-8 w-[85%]">
         <div className="row-start-3 row-end-5 col-start-3 col-end-7 text-xs relative">
           <p className="w-4/5 text-lg pb-3">

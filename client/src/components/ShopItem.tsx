@@ -76,11 +76,7 @@ const ShopItem: React.FunctionComponent<ShopItemPropsWITHDB> = (props) => {
   //const {isLoading, data, error} = useQuery(["sendToCart"], async () => {
 
   return (
-<<<<<<< HEAD
-    <div className="flex h-86 md:w-48 max-w-xs flex-col font-poppins transition-all ease-in delay-150">
-=======
     <div className="flex justify-center shadow-md my-2 mx-auto rounded-xl p-4 h-86 md:w-60 max-w-xs flex-col font-poppins transition-all ease-in delay-150">
->>>>>>> toGrid
       <span className="text-green-700 flex flex-row gap-2 items-center w-fit font-extralight text-center p-1 text-xs rounded-xl">
         <svg
           width="11"

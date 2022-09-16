@@ -1,10 +1,8 @@
 const PreFooter = () => {
   return (
     <>
-      <div className="pt-8"></div>
-      <div
-        className={`w-full flex flex-row justify-center gap-32 items-center`}
-      >
+      <div className="pt-1 md:pt-8"></div>
+      <div className="w-full flex flex-col md:flex-row justify-center gap-2 md:gap-32 items-center">
         <div className="flex flex-col gap-3 w-52 h-40 items-center">
           <svg
             width="65"
