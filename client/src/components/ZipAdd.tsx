@@ -1,7 +1,13 @@
 const ZipAdd = () => {
   return (
+<<<<<<< HEAD
     <div className="flex flex-col md:block md:justify-center md:items-center">
       <div className="px-2 flex flex-row min-h-full lg:justify-center items-center gap-4 max-w-full  sm:w-[1060px] bg-[#f7f4ff] h-16 md:px-24">
+=======
+    <div className="">
+      {/*flex flex-col md:block md:justify-center md:items-center*/}
+      <div className="px-2 flex w-full flex-row min-h-full lg:justify-center items-center gap-4  h-16">
+>>>>>>> toGrid
         <svg
           width="77"
           height="27"

@@ -13,11 +13,25 @@ const renderProductByCategory = (
     intermediateData = data
       .filter((item) => item.category === category)
       .filter((item) => item.productPicture.endsWith(filter))
-      .map((item, index) => index < 4 && <ShopItem key={index} {...item} />);
+      .map(
+        (item, index) =>
+          index < 4 && (
+            <li className="place-self-center border-2 outline-2 border-cyan-200">
+              <ShopItem key={index} {...item} />
+            </li>
+          )
+      );
   } else {
     intermediateData = data
       .filter((item) => item.productPicture.endsWith(filter))
-      .map((item, index) => index < 4 && <ShopItem key={index} {...item} />);
+      .map(
+        (item, index) =>
+          index < 4 && (
+            <li className="place-self-center">
+              <ShopItem key={index} {...item} />
+            </li>
+          )
+      );
   }
   return intermediateData;
 };

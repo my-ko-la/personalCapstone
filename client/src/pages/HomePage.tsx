@@ -4,9 +4,13 @@ import Gallery from "../components/Gallery";
 import PreFooter from "../components/c_global/PreFooter";
 import Footer from "../components/c_global/Footer";
 import ZipAdd from "../components/ZipAdd";
-import HomeProductSection from "../components/HomeProductSection";
 import QuoteReview from "../components/QuoteReview";
 import { useQuery } from "@tanstack/react-query";
+<<<<<<< HEAD
+=======
+import renderProductByCategory from "../utils/renderProductByCategory";
+import HomePageBanner from "../components/HomePageBanner";
+>>>>>>> toGrid
 
 const HomePage = () => {
   const { data, isLoading, error } = useQuery(["shopItems"], async () => {
@@ -22,24 +26,42 @@ const HomePage = () => {
     return data;
   });
 
+<<<<<<< HEAD
   if (isLoading) return <div>🧐</div>;
+=======
+  if (isLoading) return <div> </div>;
+
+  const customBuild = renderProductByCategory(data, "V6.png");
+  const msiLaptops = renderProductByCategory(data, "laptop.png");
+  const desktops = renderProductByCategory(data, "desktop.png");
+  const gamingMonitors = renderProductByCategory(data, "monitor.png");
+>>>>>>> toGrid
 
   return (
     <>
       <TopNav />
+<<<<<<< HEAD
+=======
+      <hr />
+>>>>>>> toGrid
       <main className="font-poppins mb-auto">
         <img
-          className="sm:flex justify-center hidden md:inline-flex md:px-48"
+          className="sm:flex justify-center hidden md:px-24"
           src={msiWallpaper}
         ></img>
         <div className="pt-4 md:pt-10"></div>
+<<<<<<< HEAD
         <div className="flex flex-row pl-3 md:px-48 md:justify-between">
+=======
+        <div className="flex flex-row pl-3 md:px-24 md:justify-between">
+>>>>>>> toGrid
           <span className="text-xl md:text-md font-bold">New Products</span>
           <a className="text-blue-300 hidden sm:block underline text-xs">
             See All New Products
           </a>
         </div>
         <div className="pt-6"></div>
+<<<<<<< HEAD
         <div className="px-10 md:px-48">
           <Gallery data={data} />
         </div>
@@ -95,6 +117,52 @@ const HomePage = () => {
           productFilter="monitor.png"
           category={false}
         />
+=======
+        <div className="px-10 md:px-24">
+          <Gallery data={data} />
+        </div>
+        <div className="pt-5"></div>
+        <div
+          className=" flex flex-row rounded-md justify-center items-center
+        bg-[#f7f4ff] lg:max-w-7xl mx-auto"
+        >
+          <ZipAdd />
+        </div>
+        <div className="pt-6"></div>
+        <div className="flex flex-row justify-center">
+          <ul
+            className="inline-grid 
+          grid-cols-1 gap-y-5 
+          md:grid-cols-3 
+          lg:grid-cols-5 lg:grid-rows-4 lg:gap-x-5 lg:gap-y-10 "
+          >
+            <HomePageBanner
+              bgImg="../public/images/customBuild.png"
+              title="Custom Build"
+              link="See All Custom Builds"
+            />
+            {customBuild}
+            <HomePageBanner
+              bgImg="../public/images/msiLaptops.png"
+              title="MSI Laptops"
+              link="See All Laptops"
+            />
+            {msiLaptops}
+            <HomePageBanner
+              bgImg="../public/images/desktops.png"
+              title="Desktops"
+              link="See All Desktops"
+            />
+            {desktops}
+            <HomePageBanner
+              bgImg="../public/images/gamingMonitors.png"
+              title="Gaming Monitors"
+              link="See All Monitors"
+            />
+            {gamingMonitors}
+          </ul>
+        </div>
+>>>>>>> toGrid
         <div className="pt-6"></div>
         <QuoteReview />
         <PreFooter />
