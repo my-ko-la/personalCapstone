@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <div className="flex flex-col sm:flex-row px-2 md:px-48">
-      <div className="flex flex-row max-w-[390px] md:w-full justify-between font-poppins text-xs">
+      <div className="flex flex-row md:w-full justify-between font-poppins text-xs">
         <Link to="/">
           <svg
             className=""
@@ -35,13 +35,19 @@ const Navbar = () => {
             />
           </svg>
         </Link>
-        <div className="hidden sm:flex flex-row text-xs lg:whitespace-nowrap items-center lg:gap-5 lg:text-xs">
+        <div className="hidden sm:flex flex-row text-xs lg:whitespace-nowrap flex-1 items-center gap-5 lg:text-xs">
           <a href="">Laptops</a>
           <a href="">Desktop PCs</a>
-          <a href="">Networking Devices</a>
-          <a href="">Printers & Scanners</a>
+          <a className="sm:hidden lg:inline" href="">
+            Networking Devices
+          </a>
+          <a className="sm:hidden lg:inline" href="">
+            Printers & Scanners
+          </a>
           <a href="">PC Parts</a>
-          <a href="">All Other Products</a>
+          <a className="sm:hidden lg:inline" href="">
+            All Other Products
+          </a>
           <a href="">Repairs</a>
           <button
             className="text-blue-600  transition-colors duration-800 border-2 font-bold rounded-2xl px-5 md:px-8 h-8 md:text-xs border-blue-600
@@ -82,7 +88,7 @@ const Navbar = () => {
             </svg>
           </a>
           <Link
-            className="py-2  px-0 lg:px-1 hover:bg-black hover:text-white hover:transition-all text-xl lg:text-sm lg:w-20 lg:text-center lg:whitespace-nowrap  rounded-xl transition-all duration-800 hover:duration-800 hover:ease-linear"
+            className="py-2 px-0 lg:px-1 hover:bg-black hover:text-white hover:transition-all text-lg md:text-sm lg:w-20 md:text-md lg:text-center sm:whitespace-nowrap  rounded-xl transition-all duration-800 hover:duration-800 hover:ease-linear"
             to={data ? "/dashboard" : "/login"}
           >
             {data?.fname ? `Hi, ${data.fname}!` : "Login"}
