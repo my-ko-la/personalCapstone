@@ -69,28 +69,33 @@ const HomePage = () => {
               bgImg="../public/images/customBuild.png"
               title="Custom Build"
               link="See All Custom Builds"
-              gridPos="sm:col-span-2 sm:row-start-1"
+              gridPos="col-span-2 sm:col-span-2 md:col-span-1 sm:row-start-1"
             />
             {customBuild}
             <HomePageBanner
               bgImg="../public/images/msiLaptops.png"
               title="MSI Laptops"
               link="See All Laptops"
-              gridPos="sm:col-span-2 sm:row-start-4"
+              gridPos="col-span-2 sm:col-span-2 md:col-span-1 sm:row-start-4 
+              md:col-start-3 md:row-start-2
+              lg:col-start-1 lg:row-start-2"
             />
             {msiLaptops}
             <HomePageBanner
               bgImg="../public/images/desktops.png"
               title="Desktops"
               link="See All Desktops"
-              gridPos="sm:col-span-2 sm:row-start-7"
+              gridPos="col-span-2 sm:col-span-2 md:col-span-1 sm:row-start-7
+              md:col-start-2 md:row-start-4
+              lg:col-start-1 lg:row-start-3"
             />
             {desktops}
             <HomePageBanner
               bgImg="../public/images/gamingMonitors.png"
               title="Gaming Monitors"
               link="See All Monitors"
-              gridPos="sm:col-span-2 sm:row-start-10"
+              gridPos="col-span-2 sm:col-span-2 md:col-span-1 sm:row-start-10
+              lg:col-start-1 lg:row-start-4"
             />
             {gamingMonitors}
           </ul>
