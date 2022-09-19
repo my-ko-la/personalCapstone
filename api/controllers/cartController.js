@@ -1,4 +1,4 @@
-const jwt = require("jsonwebtoken");
+//const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 const Cart = require("../models/cart");
 const AsyncHandler = require("express-async-handler");
@@ -27,35 +27,35 @@ const addItemToCart = AsyncHandler(async (req, res) => {
   // get user info from cookie
   const { user, cart } = await getUserCartInfo(req, res);
 
-  const itemExists = cart.items.find(req.body.product);
+  try {
+    const itemExists = cart.items.find(req.body.product._id);
 
-  if (itemExists) {
-    cart.items.product.amount++;
-  } else {
-    cart.items.push(req.body.product);
+    if (itemExists) {
+      cart.items.product.amount++;
+    } else {
+      cart.items.push(req.body.product);
+    }
+
+    cart.save().then((cart) => res.status(200).json(cart).json(user));
+  } catch (err) {
+    res.status(400).json(err);
   }
-
-  cart.save().then((cart) => res.status(200).json(cart).json(user));
 });
 
 // @desc    Decrement item from cart
 // @route   PUT /cart/modify/
 // @access  Private/Protected
 
-const decrementFromCart = AsyncHandler(async (req, res) => {
+const updateCart = AsyncHandler(async (req, res) => {
   // get user info from cookie
   const { cart } = await getUserCartInfo(req, res);
 
-  // check if item already exists in cart
-  const itemExists = cart.items.find(
-    (item) => items.product == req.body.product
-  );
+  const filter = req.body.product._id;
+  const update = req.body.product.amount;
 
-  if (itemExists) {
-    cart.items.product.amout++;
-  } else {
-    cart.items.push(req.body);
-  }
+  const itemToUpdate = await cart.items.findOneAndUpdate(filter, update);
+
+  cart.save().then((cart) => res.status(200).json("message: item updated"));
 });
 
 // @desc    Remove item from cart
@@ -76,6 +76,26 @@ const getCart = AsyncHandler(async (req, res) => {
   }
 });
 
+//const provideUserWithCart = AsyncHandler(async (req, res) => {
+//try {
+//const { user, cart } = getUserCartInfo(req, res);
+
+//if (cart) return;
+
+//if (!cart) {
+//const cart = await Cart.create({ user: user._id });
+//return await cart.save();
+//}
+//} catch (err) {
+//res.status(400).send(err);
+//}
+//});
+
 // @desc    Helper function to get cart
 
-module.exports = { getCart, addItemToCart, decrementFromCart };
+module.exports = {
+  getCart,
+  getUserCartInfo,
+  addItemToCart,
+  updateCart,
+};

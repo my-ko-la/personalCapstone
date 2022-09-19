@@ -21,4 +21,11 @@ const cartSchema = new Schema({
   },
 });
 
+cartSchema.virtual("getTotal").get(function () {
+  const totalValue = this.items.reduce((acc, val) => {
+    acc += val.product.price * val.product.amount;
+  }, 0);
+  return totalValue;
+});
+
 module.exports = mongoose.model("Cart", cartSchema);

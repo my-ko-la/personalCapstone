@@ -65,7 +65,7 @@ const loginUser = AsyncHandler(async (req, res) => {
         .setHeader("Authorization", `Bearer ${user.token}`)
         .cookie("auth-t", `${user.token}`, {
           secure: true,
-          maxAge: 1000 * 60 * 60 * 3,
+          maxAge: 1000 * 60 * 60 * 24 * 7,
         })
         //.setHeader("Access-Control-Allow-Credentials", "true")
         .json({ ...userInfo, token: user.token })
