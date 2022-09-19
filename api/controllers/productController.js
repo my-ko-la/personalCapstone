@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/user");
-const Cart = require("../models/cart");
-const Product = require("../models/product");
+const User = require("../models/userModel");
+const Cart = require("../models/cartModel");
+const Product = require("../models/productModel");
 const AsyncHandler = require("express-async-handler");
 const { decodeToken } = require("../middleware/authMiddleware.js");
 

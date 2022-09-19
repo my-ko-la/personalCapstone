@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
 const CryptoJS = require("crypto-js");
-const User = require("../models/user");
+const User = require("../models/userModel");
 const AsyncHandler = require("express-async-handler");
-const Cart = require("../models/cart");
+const Cart = require("../models/cartModel");
 
 // @desc    Register a User
 // @route   POST /users/register

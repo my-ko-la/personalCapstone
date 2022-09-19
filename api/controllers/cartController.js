@@ -1,6 +1,5 @@
-//const jwt = require("jsonwebtoken");
-const User = require("../models/user");
-const Cart = require("../models/cart");
+const User = require("../models/userModel");
+const Cart = require("../models/cartModel");
 const AsyncHandler = require("express-async-handler");
 const { decodeToken } = require("../middleware/authMiddleware.js");
 
@@ -20,50 +19,56 @@ const getUserCartInfo = async (req, res) => {
 };
 
 // @desc    Add product to cart
-// @route   POST /users/:id/cart/add
-// @access  Private/Protected
+// @route   PUT /cart/add/:id
+// @access  Private/Protected (Token)
 
 const addItemToCart = AsyncHandler(async (req, res) => {
   // get user info from cookie
   const { user, cart } = await getUserCartInfo(req, res);
 
   try {
-    const itemExists = cart.items.find(req.body.product._id);
-
-    if (itemExists) {
-      cart.items.product.amount++;
-    } else {
-      cart.items.push(req.body.product);
-    }
-
-    cart.save().then((cart) => res.status(200).json(cart).json(user));
+    cart.items.push(req.params.id);
+    cart.save().then(res.status(200).json(cart));
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-// @desc    Decrement item from cart
-// @route   PUT /cart/modify/
-// @access  Private/Protected
+// @desc    Remove all items from cart
+// @route   DELETE /cart/remove
+// @access  Private/Protected (Token)
 
-const updateCart = AsyncHandler(async (req, res) => {
-  // get user info from cookie
+const voidCart = AsyncHandler(async (req, res) => {
   const { cart } = await getUserCartInfo(req, res);
 
-  const filter = req.body.product._id;
-  const update = req.body.product.amount;
-
-  const itemToUpdate = await cart.items.findOneAndUpdate(filter, update);
-
-  cart.save().then((cart) => res.status(200).json("message: item updated"));
+  try {
+    cart.items.splice(0, cart.items.length);
+    cart.save().then(res.status(200).json(cart));
+  } catch (err) {
+    console.log(err);
+    res.status(400);
+  }
 });
 
 // @desc    Remove item from cart
-// @route   DELETE /cart/remove
-// @access  Private/Protected
+// @route   PUT /cart/remove/:id
+// @access  Private/Protected (Token)
+
+const removeItemFromCart = AsyncHandler(async (req, res) => {
+  const { cart } = await getUserCartInfo(req, res);
+
+  try {
+    const elementToDelete = cart.items.indexOf(req.params.id);
+    cart.items.splice(elementToDelete, 1);
+    cart.save().then(res.status(200).json(cart));
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
 
 // @desc    Get cart items
-// @route   GET /carts/me/
+// @route   GET /cart/me/
 // @access  Private/Protected (Token)
 
 const getCart = AsyncHandler(async (req, res) => {
@@ -76,26 +81,10 @@ const getCart = AsyncHandler(async (req, res) => {
   }
 });
 
-//const provideUserWithCart = AsyncHandler(async (req, res) => {
-//try {
-//const { user, cart } = getUserCartInfo(req, res);
-
-//if (cart) return;
-
-//if (!cart) {
-//const cart = await Cart.create({ user: user._id });
-//return await cart.save();
-//}
-//} catch (err) {
-//res.status(400).send(err);
-//}
-//});
-
-// @desc    Helper function to get cart
-
 module.exports = {
   getCart,
   getUserCartInfo,
   addItemToCart,
-  updateCart,
+  voidCart,
+  removeItemFromCart,
 };

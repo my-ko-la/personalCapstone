@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/user");
+const User = require("../models/userModel");
 const AsyncHandler = require("express-async-handler");
 
 const protect = AsyncHandler(async (req, res, next) => {
@@ -34,10 +34,7 @@ const protect = AsyncHandler(async (req, res, next) => {
 });
 
 const decodeToken = (token) => {
-  console.log("indise decodeToken");
   const decoded = jwt.verify(token, process.env.SEC_JWT);
-
-  console.log("token decoded");
 
   return decoded;
 };
