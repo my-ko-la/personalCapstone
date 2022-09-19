@@ -10,7 +10,9 @@ const getUserCartInfo = async (req, res) => {
     const decoded = decodeToken(token);
 
     const user = await User.findById(decoded.id);
-    const cart = await Cart.findOne({ user: user._id });
+    const cart = await Cart.findOne({ user: user._id }).populate({
+      path: "items",
+    });
 
     return { user, cart };
   } catch (error) {
@@ -24,11 +26,10 @@ const getUserCartInfo = async (req, res) => {
 
 const addItemToCart = AsyncHandler(async (req, res) => {
   // get user info from cookie
-  const { user, cart } = await getUserCartInfo(req, res);
+  const { cart } = await getUserCartInfo(req, res);
 
   try {
-    cart.items.push(req.params.id);
-    cart.save().then(res.status(200).json(cart));
+    cart.items.push(req.params.id).save().then(res.status(200).json(cart));
   } catch (err) {
     res.status(400).json(err);
   }
@@ -75,7 +76,7 @@ const getCart = AsyncHandler(async (req, res) => {
   try {
     const { cart } = await getUserCartInfo(req, res);
 
-    return res.status(201).json(cart);
+    cart.save().then(res.status(201).json(cart));
   } catch (err) {
     res.status(400).send(err);
   }

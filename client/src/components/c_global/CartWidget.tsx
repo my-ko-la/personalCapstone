@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import useQuery from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 interface CartProps extends ShopItemCartProps {
   username?: string;
@@ -109,14 +109,23 @@ rounded-xl hover:bg-black transition-colors duration-800 hover-transition-colors
 
 const CartWidget = () => {
   // useful?
-  const getTotal = (total: number[]) => {
-    return total.reduce((acc, val) => (acc += val), 0);
-  };
+
+  const { isLoading, data, error } = useQuery(["getCart"], async () => {
+    const res = await fetch("http://localhost:5000/cart/me", {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer",
+      },
+    });
+    return res.json();
+  });
+
+  const getTotal = (data: any) => {};
 
   const [isOpen, setIsOpen] = useState(false);
-
   const handleIsOpen = () => setIsOpen((prev) => !prev);
-
   const [cartRef] = useAutoAnimate<HTMLDivElement>();
 
   return (
