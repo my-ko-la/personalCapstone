@@ -5,6 +5,7 @@ import ContactUs from "./pages/ContactUs";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import TestingPage from "./pages/TestingPage";
 
 function App() {
   const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ function App() {
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/testing" element={<TestingPage />} />
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>

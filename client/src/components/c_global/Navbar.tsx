@@ -73,7 +73,7 @@ const Navbar = () => {
               />
             </svg>
           </a>
-          <a className="block lg:flex" href="">
+          <a id="cart" className="block lg:flex" href="">
             <svg
               width="30 "
               height="25"
