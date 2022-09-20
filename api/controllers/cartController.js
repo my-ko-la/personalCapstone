@@ -3,16 +3,18 @@ const Cart = require("../models/cartModel");
 const AsyncHandler = require("express-async-handler");
 const { decodeToken } = require("../middleware/authMiddleware.js");
 
-const getUserCartInfo = async (req, res) => {
+const getUserCartInfo = async (token) => {
   try {
-    // authorizaztion header for Bearer Token
-    const token = req.headers.authorization.split(" ")[1];
+    //const token = req.headers.cookie.split("=").pop();
+    //const token = req.headers.cookie.split("=").pop();
     const decoded = decodeToken(token);
 
     const user = await User.findById(decoded.id);
-    const cart = await Cart.findOne({ user: user._id }).populate({
-      path: "items",
-    });
+    const cart = await Cart.findOne({ user: user._id })
+      .populate({
+        path: "items",
+      })
+      .populate({ path: "user" });
 
     return { user, cart };
   } catch (error) {
@@ -29,8 +31,10 @@ const addItemToCart = AsyncHandler(async (req, res) => {
   const { cart } = await getUserCartInfo(req, res);
 
   try {
-    cart.items.push(req.params.id).save().then(res.status(200).json(cart));
+    cart.items.push(req.params.id);
+    cart.save().then(res.status(200).json(cart));
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -56,7 +60,7 @@ const voidCart = AsyncHandler(async (req, res) => {
 // @access  Private/Protected (Token)
 
 const removeItemFromCart = AsyncHandler(async (req, res) => {
-  const { cart } = await getUserCartInfo(req, res);
+  const { user, cart } = await getUserCartInfo(req, res);
 
   try {
     const elementToDelete = cart.items.indexOf(req.params.id);
@@ -74,7 +78,8 @@ const removeItemFromCart = AsyncHandler(async (req, res) => {
 
 const getCart = AsyncHandler(async (req, res) => {
   try {
-    const { cart } = await getUserCartInfo(req, res);
+    let token = req.headers.cookie.split("=").pop();
+    const { user, cart } = await getUserCartInfo(token);
 
     cart.save().then(res.status(201).json(cart));
   } catch (err) {

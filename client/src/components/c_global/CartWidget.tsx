@@ -3,22 +3,22 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useQuery } from "@tanstack/react-query";
 
 interface CartProps extends ShopItemCartProps {
-  username?: string;
+  user: { fname?: string };
 }
 
 interface ShopItemCartProps {
-  amount: string | number;
-  name: string;
-  productPicture?: string;
+  item: {
+    name: string;
+    productPicture?: string;
+  };
 }
 
 const ShopItemCart: React.FunctionComponent<ShopItemCartProps> = (props) => {
   return (
     <section className="w-full justify-between px-2 items-center  min-h-[60px] flex flex-row border-gray-400 outline-1 border-b font-poppins">
-      <p>{props.amount} x</p>
       <div className="flex flex-row justify-center">
-        <img src="{props?.productPicture}" alt="" />
-        <p>{props.name}</p>
+        <img src={props?.item.productPicture} alt="" />
+        <p>{props?.item.name}</p>
       </div>
       <div className="flex flex-col items-center gap-1">
         <button>
@@ -35,10 +35,10 @@ const ShopItemCart: React.FunctionComponent<ShopItemCartProps> = (props) => {
               r="9.25"
               fill="white"
               stroke="#CACDD8"
-              stroke-width="1.5"
+              strokeWidth="1.5"
             />
-            <path d="M7 7L13.5 13.5" stroke="#A2A6B0" stroke-linecap="round" />
-            <path d="M13.5 7L7 13.5" stroke="#A2A6B0" stroke-linecap="round" />
+            <path d="M7 7L13.5 13.5" stroke="#A2A6B0" strokeLinecap="round" />
+            <path d="M13.5 7L7 13.5" stroke="#A2A6B0" strokeLinecap="round" />
           </svg>
         </button>
         <button>
@@ -55,7 +55,7 @@ const ShopItemCart: React.FunctionComponent<ShopItemCartProps> = (props) => {
               r="9.25"
               fill="white"
               stroke="#CACDD8"
-              stroke-width="1.5"
+              strokeWidth="1.5"
             />
             <path
               d="M6.0472 15.6762H6.10254L8.66678 15.4425C8.94767 15.4146 9.21039 15.2908 9.41083 15.092L14.9452 9.5577C15.16 9.33078 15.276 9.02795 15.268 8.71558C15.2599 8.40322 15.1283 8.10679 14.9021 7.89126L13.2172 6.20636C12.9973 5.99981 12.7092 5.88129 12.4076 5.87335C12.106 5.86541 11.812 5.96861 11.5815 6.16332L6.0472 11.6976C5.84843 11.8981 5.72467 12.1608 5.69669 12.4417L5.43227 15.0059C5.42399 15.096 5.43568 15.1868 5.4665 15.2718C5.49732 15.3569 5.54653 15.434 5.6106 15.4979C5.66806 15.5549 5.7362 15.6 5.81112 15.6306C5.88604 15.6612 5.96627 15.6767 6.0472 15.6762ZM12.3625 7.06726L14.0412 8.746L12.8114 9.94511L11.1634 8.29711L12.3625 7.06726ZM6.88964 12.5462L10.3517 9.10881L12.012 10.7691L8.56839 14.2127L6.72361 14.3849L6.88964 12.5462Z"
@@ -69,8 +69,6 @@ const ShopItemCart: React.FunctionComponent<ShopItemCartProps> = (props) => {
 };
 
 const CartWidgetOpen: React.FunctionComponent<CartProps> = (props) => {
-  // write mapping of items to JSX elements
-
   return (
     <>
       <div className="font-poppings overflow-hidden shadow-md border-black max-w-xs grid grid-col-1 border-2 outline-2 rounded-xl">
@@ -81,7 +79,7 @@ rounded-xl hover:bg-black transition-colors duration-800 hover-transition-colors
           close
         </button>
         <div className="flex pt-5 border-b outline-1 border-gray-400 flex-col pb-4 justify-center items-center px-5">
-          <p className="font-semibold">{props.username}'s Cart</p>
+          <p className="font-semibold">{props.user.fname}'s Cart</p>
           <p className="font-light text-gray-400 pb-5">10 items in the cart</p>
           <button
             className="text-blue-600  transition-colors duration-800 border-2 font-bold rounded-2xl px-5 md:px-8 h-8 md:text-xs border-blue-600
@@ -92,9 +90,7 @@ rounded-xl hover:bg-black transition-colors duration-800 hover-transition-colors
           </button>
         </div>
         <div className="w-full">
-          <ShopItemCart amount="12" name="sssssss"></ShopItemCart>
-          <ShopItemCart amount="12" name="sssssss"></ShopItemCart>
-          <ShopItemCart amount="12" name="sssssss"></ShopItemCart>
+          <ShopItemCart {...props} />
         </div>
         <div className="flex flex-col items-center gap-2 justify-center pt-2 mb-4 px-10">
           <span className="font-semibold">Subtotal: XX </span>
@@ -108,8 +104,6 @@ rounded-xl hover:bg-black transition-colors duration-800 hover-transition-colors
 };
 
 const CartWidget = () => {
-  // useful?
-
   const { isLoading, data, error } = useQuery(["getCart"], async () => {
     const res = await fetch("http://localhost:5000/cart/me", {
       method: "GET",
@@ -118,23 +112,28 @@ const CartWidget = () => {
         "Content-Type": "application/json",
         Authorization: "Bearer",
       },
+      mode: "cors",
     });
     return res.json();
   });
 
-  const getTotal = (data: any) => {};
+  //const getTotal = (data: any) => {};
 
   const [isOpen, setIsOpen] = useState(false);
   const handleIsOpen = () => setIsOpen((prev) => !prev);
   const [cartRef] = useAutoAnimate<HTMLDivElement>();
 
+  if (isLoading) return <div>...loading</div>;
+
+  const ranVal = (index: number) => {
+    return index + Math.floor(Math.random() * 100);
+  };
+
+  console.log(data);
+
   return (
     <>
-      <button
-        id="cart"
-        className="block lg:flex hover:border-b hover:outline-3  hover:border-black hover:transition-all hover:pb-1 hover:duration-800 duration-800 transition-all}"
-        onClick={handleIsOpen}
-      >
+      <button id="cart" className="block lg:flex " onClick={handleIsOpen}>
         <svg
           width="30 "
           height="25"
@@ -149,14 +148,7 @@ const CartWidget = () => {
         </svg>
       </button>
       <div ref={cartRef}>
-        {isOpen && (
-          <CartWidgetOpen
-            amount={1}
-            productPicture=" "
-            username="Myko"
-            name=""
-          />
-        )}
+        {isOpen ? <CartWidgetOpen {...data} /> : "WHAT?!"}
       </div>
     </>
   );
