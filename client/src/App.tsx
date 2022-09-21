@@ -1,4 +1,5 @@
 import HomePage from "./pages/HomePage";
+// NOT WORKING -> import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import About from "./pages/About";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ContactUs from "./pages/ContactUs";
@@ -10,20 +11,18 @@ import TestingPage from "./pages/TestingPage";
 function App() {
   const queryClient = new QueryClient();
   return (
-    <>
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/testing" element={<TestingPage />} />
-          </Routes>
-        </BrowserRouter>
-      </QueryClientProvider>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/testing" element={<TestingPage />} />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 

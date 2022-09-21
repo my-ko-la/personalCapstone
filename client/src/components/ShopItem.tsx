@@ -1,3 +1,5 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import React from "react";
 import showStars from "../utils/showStars";
 /*enum Availability {
     inStock="in stock", 
@@ -58,7 +60,7 @@ type price = {
 };
 
 interface ShopItemPropsWITHDB {
-  id?: string;
+  _id: string;
   name: string;
   description: description[];
   isOnSale: boolean;
@@ -72,8 +74,25 @@ interface ShopItemPropsWITHDB {
 
 const ShopItem: React.FunctionComponent<ShopItemPropsWITHDB> = (props) => {
   //const handleAddToCart = (e) => { };
-
+  const queryClient = useQueryClient();
   //const {isLoading, data, error} = useQuery(["sendToCart"], async () => {
+  //const handleItemSubmit = (evt) => {};
+
+  async function UpdateCart(id: string) {
+    const res = await fetch(`http://localhost:5000/cart/add/${id}`, {
+      method: "PUT",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  const { mutate } = useMutation(UpdateCart, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(["getCart"]);
+    },
+  });
 
   return (
     <div className="flex justify-center shadow-md my-2 mx-auto rounded-xl p-4 h-86 md:w-60 max-w-xs flex-col font-poppins transition-all ease-in delay-150">
@@ -132,6 +151,7 @@ const ShopItem: React.FunctionComponent<ShopItemPropsWITHDB> = (props) => {
             className="inline text-xs px-2 mr-3 outline-2 border border-gray-600 rounded-xl
             hover:bg-gray-600 hover:text-white transition-all ease-in duration-800 hover:duration-800"
             type="submit"
+            onClick={() => mutate(props._id)}
           >
             Add to Cart
           </button>

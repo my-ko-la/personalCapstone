@@ -28,7 +28,8 @@ const getUserCartInfo = async (token) => {
 
 const addItemToCart = AsyncHandler(async (req, res) => {
   // get user info from cookie
-  const { cart } = await getUserCartInfo(req, res);
+  let token = req.headers.cookie.split("=").pop();
+  const { cart } = await getUserCartInfo(token);
 
   try {
     cart.items.push(req.params.id);
@@ -44,7 +45,8 @@ const addItemToCart = AsyncHandler(async (req, res) => {
 // @access  Private/Protected (Token)
 
 const voidCart = AsyncHandler(async (req, res) => {
-  const { cart } = await getUserCartInfo(req, res);
+  let token = req.headers.cookie.split("=").pop();
+  const { user, cart } = await getUserCartInfo(token);
 
   try {
     cart.items.splice(0, cart.items.length);
@@ -60,7 +62,8 @@ const voidCart = AsyncHandler(async (req, res) => {
 // @access  Private/Protected (Token)
 
 const removeItemFromCart = AsyncHandler(async (req, res) => {
-  const { user, cart } = await getUserCartInfo(req, res);
+  let token = req.headers.cookie.split("=").pop();
+  const { user, cart } = await getUserCartInfo(token);
 
   try {
     const elementToDelete = cart.items.indexOf(req.params.id);
