@@ -1,34 +1,12 @@
-import React, { useState } from "react";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { useQuery } from "@tanstack/react-query";
-
-interface CartProps extends ShopItemCartProps {
-  user: { fname?: string };
-}
-
-interface ShopItemCartProps {
-  item: {
-    name: string;
-    productPicture?: string;
-  };
-}
-
-interface User {
-  fname: string;
-}
-
-interface Cart {
-  productPicture: string;
-  name: string;
-}
-
-interface CartData<C, U> {
-  items: C;
-  user: U;
-}
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useState, useMemo } from "react";
+import Shuffle from "../../utils/Shuffle";
 
 function CartWidget() {
-  const { isLoading, data, error } = useQuery(["getCart"], async () => {
+  const [isOpen, setIsOpen] = useState(true);
+  const handleIsOpen = () => setIsOpen((prev) => !prev);
+
+  const { isLoading, data } = useQuery(["getCart"], async () => {
     const res = await fetch("http://localhost:5000/cart/me", {
       method: "GET",
       credentials: "include",
@@ -38,26 +16,19 @@ function CartWidget() {
       },
       mode: "cors",
     });
+    console.log("refetching");
     return res.json();
   });
 
-  //const getTotal = (data: any) => {};
-
-  const [isOpen, setIsOpen] = useState(false);
-  const handleIsOpen = () => setIsOpen((prev) => !prev);
-  const [cartRef] = useAutoAnimate<HTMLDivElement>();
-
   if (isLoading) return <div>...loading</div>;
 
-  const ranVal = (index: number) => {
-    return index + Math.floor(Math.random() * 100);
-  };
-
   // leave any for now
-  const cartItems = data.items.map((item: any, index: number) => {
+  const cartItems = data.items.map((item: any) => {
     return (
       <CartItem
-        key={ranVal(index)}
+        key={Shuffle(item._id)}
+        amount={item.amount}
+        _id={item._id}
         name={item.name}
         productPicture={item.productPicture}
       />
@@ -66,12 +37,16 @@ function CartWidget() {
 
   return (
     <>
-      <button id="cart" className="block lg:flex " onClick={handleIsOpen}>
+      <button
+        id="cart"
+        className="block  rounded-xl lg:flex "
+        onClick={handleIsOpen}
+      >
         <svg
-          width="30 "
+          width="30"
           height="25"
           viewBox="0 0 25 25"
-          fill="none"
+          fill="black"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -80,16 +55,19 @@ function CartWidget() {
           />
         </svg>
       </button>
-      {isOpen ? (
-        <div ref={cartRef}>
+      {isOpen && (
+        <div>
           <div className="font-poppings overflow-hidden shadow-md border-black max-w-xs grid grid-col-1 border-2 outline-2 rounded-xl">
-            <button className="text-sm text-gray-300 ml-auto mr-2 mt-2 max-w-fit rounded-xl hover:bg-black transition-colors duration-800 hover-transition-colors hover:duration-800 hover:text-white px-1">
+            <button
+              onClick={() => setIsOpen((prev) => !prev)}
+              className="text-sm text-gray-300 ml-auto mr-2 mt-2 max-w-fit rounded-xl hover:bg-black transition-colors duration-800 hover-transition-colors hover:duration-800 hover:text-white px-1"
+            >
               close
             </button>
-            <div className="flex pt-5 border-b outline-1 border-gray-400 flex-col pb-4 justify-center items-center px-5">
+            <div className="flex pt-5  outline-1  flex-col pb-4 justify-center items-center px-5">
               <p className="font-semibold">{data?.user.fname}'s Cart</p>
               <p className="font-light text-gray-400 pb-5">
-                10 items in the cart
+                {`${data.items.length} items in the cart`}
               </p>
               <button
                 className="text-blue-600  transition-colors duration-800 border-2 font-bold rounded-2xl px-5 md:px-8 h-8 md:text-xs border-blue-600
@@ -99,9 +77,7 @@ function CartWidget() {
                 View or Edit Your Cart
               </button>
             </div>
-            {/* item cart below */}
-            <div className="w-full">{cartItems}</div>
-            {/* item cart above */}
+            <div className="w-full">{cartItems.reverse()}</div>
             <div className="flex flex-col items-center gap-2 justify-center pt-2 mb-4 px-10">
               <span className="font-semibold">Subtotal: XX </span>
               <button className="text-white  bg-blue-600 border-2 font-bold rounded-2xl px-5 h-8 border-blue-600 hover:border-white hover:outline-1  hover:duration-800 duration-800">
@@ -110,23 +86,49 @@ function CartWidget() {
             </div>
           </div>
         </div>
-      ) : (
-        <div>closed</div>
       )}
     </>
   );
 }
 
 function CartItem({
+  amount,
   name,
   productPicture,
+  _id,
 }: {
+  amount: number;
   name: string;
   productPicture: string;
+  _id: string;
 }) {
+  async function removeItemCart(id: string) {
+    const res = await fetch(`http://localhost:5000/cart/remove/${id}`, {
+      method: "PUT",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  //const { refetch } = useQuery(["getCart"]);
+  const qc = useQueryClient();
+
+  const { mutate } = useMutation(removeItemCart, {
+    onSuccess: () => {
+      qc.invalidateQueries(["getCart"]);
+      //refetch;
+    },
+  });
+  console.log("call from item");
   return (
-    <section className="w-full justify-between px-2 items-center  min-h-[60px] flex flex-row border-gray-400 outline-1 border-b font-poppins">
+    <section
+      id={_id}
+      className="w-full justify-between px-2 items-center  min-h-[60px] flex flex-row   font-poppins"
+    >
       <div className="flex my-1 gap-2 flex-row justify-center items-center">
+        <p className="text-sm px-1">{amount}x</p>
         <img
           src={productPicture}
           className="h-16 border-black outline-1 border w-16 rounded-xl"
@@ -135,7 +137,7 @@ function CartItem({
         <p className="text-xs">{name}</p>
       </div>
       <div className="flex flex-col items-center gap-1">
-        <button>
+        <button type="submit" onClick={() => mutate(_id)} id="delete">
           <svg
             width="20"
             height="20"
@@ -155,7 +157,7 @@ function CartItem({
             <path d="M13.5 7L7 13.5" stroke="#A2A6B0" strokeLinecap="round" />
           </svg>
         </button>
-        <button>
+        <button id="edit">
           <svg
             width="20"
             height="21"

@@ -18,7 +18,7 @@ const Navbar = () => {
   const { isLoading, data, error } = useQuery(["user"], fetchUserData);
 
   return (
-    <div className="flex flex-col sm:flex-row px-2 md:px-48">
+    <div className="flex flex-col sm:flex-row px-2 md:px-24">
       <div className="flex flex-row md:w-full justify-between font-poppins text-xs">
         <Link to="/">
           <svg
@@ -35,7 +35,7 @@ const Navbar = () => {
             />
           </svg>
         </Link>
-        <div className="hidden sm:flex flex-row text-xs lg:whitespace-nowrap flex-1 items-center gap-5 lg:text-xs">
+        <div className="hidden sm:flex flex-row text-xs lg:whitespace-nowrap flex-1 items-center gap-5 md:gap-10 lg:text-xs">
           <a href="">Laptops</a>
           <a href="">Desktop PCs</a>
           <a className="sm:hidden lg:inline" href="">

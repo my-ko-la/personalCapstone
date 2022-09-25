@@ -31,8 +31,14 @@ const addItemToCart = AsyncHandler(async (req, res) => {
   let token = req.headers.cookie.split("=").pop();
   const { cart } = await getUserCartInfo(token);
 
+  const itemId = req.params.id;
+
   try {
-    cart.items.push(req.params.id);
+    if (cart.items.includes(itemId)) {
+      cart.items.itemId.amount++;
+    } else {
+      cart.items.push(itemId);
+    }
     cart.save().then(res.status(200).json(cart));
   } catch (err) {
     console.log(err);
