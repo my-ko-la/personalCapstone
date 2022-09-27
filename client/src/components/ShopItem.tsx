@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useState } from "react";
 import React from "react";
 import showStars from "../utils/showStars";
 /*enum Availability {
@@ -77,6 +78,7 @@ const ShopItem: React.FunctionComponent<ShopItemPropsWITHDB> = (props) => {
   const queryClient = useQueryClient();
   //const {isLoading, data, error} = useQuery(["sendToCart"], async () => {
   //const handleItemSubmit = (evt) => {};
+  const [wiggle, setWiggle] = useState(false);
 
   async function UpdateCart(id: string) {
     const res = await fetch(`http://localhost:5000/cart/add/${id}`, {
@@ -95,7 +97,11 @@ const ShopItem: React.FunctionComponent<ShopItemPropsWITHDB> = (props) => {
   });
 
   return (
-    <div className="flex justify-center shadow-md my-2 mx-auto rounded-xl p-4 h-86 md:w-60 max-w-xs flex-col font-poppins transition-all ease-in delay-150">
+    <div
+      className="flex justify-center shadow-md my-2 mx-auto rounded-xl 
+    p-4 h-86 md:w-60 max-w-xs flex-col 
+    font-poppins transition-all ease-in delay-150"
+    >
       <span className="text-green-600 flex flex-row gap-2 items-center w-fit font-extralight text-center p-1 text-xs rounded-xl">
         <svg
           width="11"
@@ -148,10 +154,15 @@ const ShopItem: React.FunctionComponent<ShopItemPropsWITHDB> = (props) => {
           </p>
           {/* on submit here */}
           <button
-            className="inline text-xs px-2 mr-3 outline-2 border border-gray-600 rounded-xl
-            hover:bg-gray-600 hover:text-white transition-all ease-in duration-800 hover:duration-800"
+            className={` ${
+              wiggle && "animate-wiggleItem"
+            } inline text-xs px-2 mr-3 outline-2 border border-gray-600 rounded-xl
+            hover:bg-gray-600 hover:text-white transition-all ease-in duration-800 hover:duration-800`}
             type="submit"
-            onClick={() => mutate(props._id)}
+            onClick={() => {
+              mutate(props._id);
+              setWiggle(true);
+            }}
           >
             Add to Cart
           </button>
