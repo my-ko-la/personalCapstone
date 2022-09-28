@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import CartWidget from "./CartWidget";
 
 const Navbar = () => {
+  const [cartOpen, setCartOpen] = useState(false);
+
   const fetchUserData = async () => {
     const res = await fetch("http://localhost:5000/users/me", {
       method: "GET",
@@ -73,7 +77,11 @@ const Navbar = () => {
               />
             </svg>
           </a>
-          <a id="cart" className="block lg:flex" href="">
+          <button
+            id="cart"
+            className="block lg:flex"
+            onClick={() => setCartOpen((prev) => !prev)}
+          >
             <svg
               width="30 "
               height="25"
@@ -86,7 +94,18 @@ const Navbar = () => {
                 fill="black"
               />
             </svg>
-          </a>
+            {cartOpen && (
+              <div className="fixed right-12 top-28 w-70 [z-index:1000]">
+                <button
+                  onClick={() => setCartOpen((prev) => !prev)}
+                  className="absolute top-0 right-1 text-sm text-gray-300 ml-auto mr-2 mt-2 max-w-fit rounded-xl hover:bg-black transition-colors duration-800 hover-transition-colors hover:duration-800 hover:text-white px-1"
+                >
+                  close
+                </button>
+                <CartWidget />
+              </div>
+            )}
+          </button>
           <Link
             className="py-2 px-0 lg:px-1 hover:bg-black hover:text-white hover:transition-all text-lg md:text-sm lg:w-20 md:text-md lg:text-center sm:whitespace-nowrap  rounded-xl transition-all duration-800 hover:duration-800 hover:ease-linear"
             to={data ? "/dashboard" : "/login"}
